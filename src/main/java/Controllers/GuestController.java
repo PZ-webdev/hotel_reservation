@@ -1,5 +1,6 @@
 package Controllers;
 
+import DAO.SingletonConnection;
 import Models.Guest;
 import Models.Room;
 import org.hibernate.Session;
@@ -11,7 +12,7 @@ import java.util.List;
 
 public class GuestController {
     public GuestController() {
-        SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+        SessionFactory sessionFactory = SingletonConnection.getSessionFactory();
 
         // Utworzenie nowego obiektu i zapisanie ich do bazy
         Session session = sessionFactory.openSession();

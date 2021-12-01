@@ -24,8 +24,8 @@
         <!--        Po połączeniu z bazą danych jest ona tworzona na podstawie klas do których odnośniki znajdują się poniżej w znaczniku <mapping>-->
         <property name="hibernate.hbm2ddl.auto">create</property>
 
-        <mapping class="Models.User"/>
-        <mapping class="Models.Room"/>
-        <mapping class="Models.Guest"/>
+        <mapping class="com.project.Models.User"/>
+        <mapping class="com.project.Models.Room"/>
+        <mapping class="com.project.Models.Guest"/>
     </session-factory>
 </hibernate-configuration>

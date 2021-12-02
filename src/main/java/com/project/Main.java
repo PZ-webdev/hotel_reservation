@@ -29,7 +29,7 @@ public class Main extends Application {
 //            Parent root = FXMLLoader.load(Main.class.getResource("login.fxml"));
             // Create obj of type scene , add layout in it
 //            Scene scene = new Scene(root);
-            stage.initStyle(StageStyle.UNDECORATED);
+//            stage.initStyle(StageStyle.UNDECORATED);
 
 //            Image icon = new Image(getClass()
 //                    .getResourceAsStream("/img/launcher_icon.png"));

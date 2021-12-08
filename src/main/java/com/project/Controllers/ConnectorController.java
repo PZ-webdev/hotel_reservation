@@ -11,7 +11,7 @@ public class ConnectorController {
     private static Connection connection;
     private static Statement statement;
 
-    public static void main(String[] args) {
+    public Connection getConnection() {
         // Driver database
         try{
             Class.forName(DRIVER);
@@ -21,7 +21,7 @@ public class ConnectorController {
             e.printStackTrace();
         }
 
-        // Connect to database
+        // Connect to  database
         try{
             connection = DriverManager.getConnection(URL, DB_USER, DB_PASS);
             System.out.println("Nawiązano połączenie z bazą danych");
@@ -29,5 +29,6 @@ public class ConnectorController {
             System.out.println("Problem z otwarciem połączenia...");
             e.printStackTrace();
         }
+        return connection;
     }
 }

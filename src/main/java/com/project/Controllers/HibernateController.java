@@ -1,5 +1,6 @@
-package com.project.DAO;
+package com.project.Controllers;
 
+import com.project.DAO.SingletonConnection;
 import com.project.Models.Guest;
 import com.project.Models.Room;
 import com.project.Models.User;

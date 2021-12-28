@@ -8,7 +8,7 @@ public class DatabaseConnection {
     public Connection getConnection(){
         String database = "hotel_reseravation";
         String username = "root";
-        String password = "";
+        String password = "root";
         String url = "";
         return null;
     }

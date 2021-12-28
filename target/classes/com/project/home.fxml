@@ -28,14 +28,24 @@
             <Pane prefHeight="200.0" prefWidth="200.0">
                <children>
                   <Button fx:id="logout_button" layoutX="14.0" layoutY="161.0" mnemonicParsing="false" text="Wyloguj" />
-                  <Text fill="WHITE" layoutX="14.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Imie" wrappingWidth="186.93671035766602">
+                  <Text fill="WHITE" layoutX="14.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login:" wrappingWidth="112.53671646118164">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="16.0" />
                      </font>
                   </Text>
-                  <Text fill="WHITE" layoutX="14.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nazwisko" wrappingWidth="186.93671035766602">
+                  <Text fill="WHITE" layoutX="14.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Stanowisko:" wrappingWidth="112.53671646118164">
                      <font>
-                        <Font size="18.0" />
+                        <Font size="16.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="username" fill="WHITE" layoutX="127.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="janek233" wrappingWidth="112.53671646118164">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="role" fill="WHITE" layoutX="127.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin" wrappingWidth="112.53671646118164">
+                     <font>
+                        <Font size="16.0" />
                      </font>
                   </Text>
                </children>

@@ -1,5 +1,6 @@
 package com.project;
 
+import com.project.Controllers.HibernateController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

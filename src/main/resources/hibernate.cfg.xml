@@ -7,11 +7,11 @@
         <!--        Wskazanie jakiego sterownika używamy do połączenia z bazą danych-->
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <!--        Adres do bazy danych-->
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hotel_reservation?user=root</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost/hotel_reservation?user=root</property>
         <!--        Nazwa użytkownika bazodanowego-->
         <property name="hibernate.connection.username">root</property>
         <!--        Hasło-->
-        <property name="hibernate.connection.password"></property>
+        <property name="hibernate.connection.password">root</property>
 
         <!--        Dzięki tej wartości w konsoli będą widoczne zapytania wywoływane przez hibernate-->
         <property name="hibernate.show_sql">true</property>

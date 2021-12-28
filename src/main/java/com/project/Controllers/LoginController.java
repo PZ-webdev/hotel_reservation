@@ -1,5 +1,6 @@
 package com.project.Controllers;
 
+import com.project.Main;
 import com.project.Models.User;
 import javafx.event.Event;
 import javafx.fxml.FXML;
@@ -11,6 +12,10 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.control.*;
 import javafx.stage.Window;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionBuilder;
+import org.hibernate.SessionFactory;
 
 import java.io.IOException;
 import java.net.URL;
@@ -19,8 +24,10 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
+
 public class LoginController implements Initializable {
-    public static Stage window;
+    public Stage stage;
+    Parent root;
     public TextField login;
     public PasswordField passwordField;
     public Button loginButton;
@@ -50,9 +57,7 @@ public class LoginController implements Initializable {
 
             }else{
                 System.out.println("== ZALOGOWANO ==");
-
                 validLabel.setVisible(false);
-
                 goToHomePage(event);
             }
 
@@ -63,18 +68,14 @@ public class LoginController implements Initializable {
 
     public void goToHomePage(Event event) {
         try {
-           Parent view = FXMLLoader.load(getClass().getResource("/home.fxml"));
-//           Parent view = FXMLLoader.load(getClass ().getClassLoader().getResource( "com/project/home.fxml"));
-           Scene scene = new Scene(view);
-           Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-           window.setScene(scene);
-           window.show();
-
-
+            stage = (Stage) loginButton.getScene().getWindow();
+            root =  FXMLLoader.load(Main.class.getResource("room.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
         } catch (IOException ex) {
             System.out.println("Error load homePage FXML !");
             System.out.println(ex);
-
         } catch (Exception e) {
             System.out.println(e);
             e.printStackTrace();

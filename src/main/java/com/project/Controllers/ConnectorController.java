@@ -5,7 +5,7 @@ import java.sql.*;
 public class ConnectorController {
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String DB_USER = "root";
-    private static final String DB_PASS = "";
+    private static final String DB_PASS = "root";
     private static final String DB_NAME = "hotel_reservation";
     private static final String URL = "jdbc:mysql://localhost/" + DB_NAME;
     private static Connection connection;

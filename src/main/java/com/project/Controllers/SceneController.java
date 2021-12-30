@@ -22,11 +22,11 @@ public class SceneController {
     private static Parent main;
 
     public static void getInitialScene(Stage stage) throws IOException {
-        main = FXMLLoader.load((SceneController.class.getResource(ScenePath.LOGIN.getPath())));
+        main = FXMLLoader.load((Main.class.getResource(ScenePath.LOGIN.getPath())));
         Scene scene = new Scene(main);
         controlDrag(stage);
         stage.initStyle(StageStyle.UNDECORATED);
-        stage.setTitle("Pet Clinic CRM");
+        stage.setTitle("Login - Hotel Reservation");
         stage.setScene(scene);
         stage.show();
     }

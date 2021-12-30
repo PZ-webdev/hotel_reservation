@@ -1,7 +1,11 @@
 package com.project.Controllers;
 
+import com.project.DAO.UserDAO;
+import com.project.Helpers.CurrentUser;
 import com.project.Main;
 import com.project.Models.User;
+import javafx.animation.PauseTransition;
+import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.control.*;
 import javafx.stage.Window;
+import javafx.util.Duration;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionBuilder;
@@ -40,31 +45,55 @@ public class LoginController implements Initializable {
 
     @FXML
     public void loginAction(Event event){
-        ConnectorController connect = new ConnectorController();
-        Connection connectDB = connect.getConnection();
-//        String query = "SELECT * FROM users WHERE login = '" + login.getText() +"' AND password = '" + passwordField.getText() + "'";
-        String query = "SELECT * FROM users WHERE login = 'janek233'  AND password = 'password'";
+        String user = login.getText();
+        String pass = passwordField.getText();
 
-        try{
-            Statement statement = connectDB.createStatement();
-            ResultSet resultSet = statement.executeQuery(query);
+        if(!validFields()) {
+            validLabel.setText("Login i Hasło muszą być wypełnione !");
+            validLabel.setVisible(true);
 
-            if(!resultSet.next()) {
-                System.out.println("Niepoprane dane uzytkownika");
-
-                validLabel.setText("Niepoprawne dane logowania");
-                validLabel.setVisible(true);
-
-            }else{
-                System.out.println("== ZALOGOWANO ==");
-                validLabel.setVisible(false);
-                goToHomePage(event);
-            }
-
-        }catch (Exception e){
-            e.printStackTrace();
+            System.out.println("Username and password can't be empty!");
+            return;
         }
+
+        if (!validateLogin()) {
+            validLabel.setText("Niepoprawne dane logowania");
+            validLabel.setVisible(true);
+
+            System.out.println("User not found");
+            return;
+        }
+
+        validLabel.setStyle("-fx-text-inner-color: green;");
+        validLabel.setText("Zalogowano !");
+        validLabel.setVisible(true);
+
+        PauseTransition delay = new PauseTransition(Duration.seconds(2));
+        delay.setOnFinished( event2 -> {
+            try {
+                SceneController.getRoomScene((ActionEvent) event);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+        delay.play();
+
     }
+
+    private boolean validateLogin() {
+        User user = UserDAO.getConnectedUser(login.getText(), passwordField.getText());
+        if (user == null) {
+            return false;
+        }
+        CurrentUser.setCurrentUser(user);
+        System.out.println("Zalogowano");
+        return true;
+    }
+
+    boolean validFields() {
+        return !login.getText().isEmpty() && !passwordField.getText().isEmpty();
+    }
+
 
     public void goToHomePage(Event event) {
         try {

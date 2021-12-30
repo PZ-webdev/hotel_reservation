@@ -7,6 +7,7 @@ module com.project {
     requires java.naming;
 
     requires org.hibernate.orm.core;
+    requires lombok;
     opens com.project to javafx.fxml;
 
     exports com.project;

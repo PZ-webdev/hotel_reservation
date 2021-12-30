@@ -5,7 +5,9 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
-        <datasource-mapping />
+        <datasource-mapping>
+          <factory-entry name="Projekt" />
+        </datasource-mapping>
         <naming-strategy-map />
       </configuration>
     </facet>
@@ -46,5 +48,6 @@
     <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:17.0.0.1" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:win:17.0.0.1" level="project" />
     <orderEntry type="library" name="Maven: javax.persistence:javax.persistence-api:2.2" level="project" />
+    <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.18.22" level="project" />
   </component>
 </module>

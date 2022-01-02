@@ -31,14 +31,27 @@ public class SceneController {
         stage.show();
     }
 
-    public static void getMainScene(ActionEvent event) throws IOException {
+    public static void getHomeScene(ActionEvent event) throws IOException {
         Scene scene = new Scene(main);
         changeScreen(event, ScenePath.HOME.getPath());
     }
-
+    public static void getLoginScene(ActionEvent event) throws IOException {
+        changeScreen(event, ScenePath.LOGIN.getPath());
+    }
     public static void getRoomScene(ActionEvent event) throws IOException {
         changeScreen(event, ScenePath.ROOM.getPath());
     }
+
+    public static void getGuestScene(ActionEvent event) throws IOException {
+        changeScreen(event, ScenePath.GUEST.getPath());
+    }
+    public static void getUserScene(ActionEvent event) throws IOException {
+        changeScreen(event, ScenePath.USERS.getPath());
+    }
+    public static void getReservationScene(ActionEvent event) throws IOException {
+        changeScreen(event, ScenePath.RESERVATION.getPath());
+    }
+
 
     private static void changeScreen(ActionEvent event, String path) throws IOException {
         main = FXMLLoader.load(Main.class.getResource(path));

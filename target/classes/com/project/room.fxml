@@ -13,7 +13,7 @@
    <children>
       <VBox layoutX="-1.0" prefHeight="550.0" prefWidth="250.0" style="-fx-background-color: #3F2B63;">
          <children>
-            <Pane prefHeight="122.0" prefWidth="250.0">
+            <Pane prefHeight="122.0" prefWidth="266.0">
                <children>
                   <Text fill="WHITE" layoutX="-3.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hotel Reservation" textAlignment="CENTER" wrappingWidth="255.1539306640625">
                      <font>
@@ -22,24 +22,12 @@
                   </Text>
                </children>
             </Pane>
-            <Button fx:id="reservation_button" mnemonicParsing="false" prefHeight="70.0" prefWidth="266.0" text="Rezerwacja" />
-            <Button fx:id="guest_button" mnemonicParsing="false" prefHeight="70.0" prefWidth="266.0" text="Goście" />
-            <Button fx:id="room_button" mnemonicParsing="false" prefHeight="70.0" prefWidth="266.0" text="Pokoje" />
-            <Pane prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <Button fx:id="logout_button" layoutX="14.0" layoutY="161.0" mnemonicParsing="false" text="Wyloguj" />
-                  <Text fill="WHITE" layoutX="14.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Imie" wrappingWidth="186.93671035766602">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
-                  <Text fill="WHITE" layoutX="14.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nazwisko" wrappingWidth="186.93671035766602">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
-               </children>
-            </Pane>
+            <Button fx:id="home_button" mnemonicParsing="false" prefHeight="70.0" prefWidth="266.0" text="Start" />
+            <Button fx:id="guest_button" mnemonicParsing="false" prefHeight="70.0" prefWidth="266.0" text="Obecni Goście" />
+            <Button fx:id="reservation_button" mnemonicParsing="false" prefHeight="70.0" prefWidth="266.0" text="Rezerwacje" />
+            <Button fx:id="rooms_button" mnemonicParsing="false" prefHeight="70.0" prefWidth="266.0" text="Pokoje" />
+            <Button fx:id="users_button" mnemonicParsing="false" prefHeight="70.0" prefWidth="266.0" text="Użytkownicy" />
+            <Button fx:id="close_button" mnemonicParsing="false" prefHeight="70.0" prefWidth="266.0" text="Zamknij" />
          </children>
       </VBox>
       <VBox layoutX="265.0" prefHeight="550.0" prefWidth="600.0">

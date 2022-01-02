@@ -1,6 +1,7 @@
 package com.project.Controllers;
 
 import com.project.DAO.RoomDAO;
+import com.project.Helpers.IMenu;
 import com.project.Models.Room;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,7 +16,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class RoomController implements Initializable {
+public class RoomController implements Initializable, IMenu {
     public TableView<Room> tableView;
     public TableColumn<Room, Integer> idColumn;
     public TableColumn<Room, Boolean> isEmpty;
@@ -55,7 +56,39 @@ public class RoomController implements Initializable {
         roomsObList.clear();
         roomsObList.addAll(roomDAO.getRooms());
     }
+
+    @Override
     public void showHomeScreen(ActionEvent event) throws IOException {
-        SceneController.getMainScene(event);
+        SceneController.getHomeScene(event);
+    }
+
+    @Override
+    public void showLoginScreen(ActionEvent event) throws IOException {
+        SceneController.getLoginScene(event);
+    }
+
+    @Override
+    public void showRoomScreen(ActionEvent event) throws IOException {
+        SceneController.getRoomScene(event);
+    }
+
+    @Override
+    public void showGuestScreen(ActionEvent event) throws IOException {
+        SceneController.getGuestScene(event);
+    }
+
+    @Override
+    public void showUserScreen(ActionEvent event) throws IOException {
+        SceneController.getUserScene(event);
+    }
+
+    @Override
+    public void showReservationScreen(ActionEvent event) throws IOException {
+        SceneController.getReservationScene(event);
+    }
+
+    @Override
+    public void close(ActionEvent event) throws IOException {
+        SceneController.close(event);
     }
 }

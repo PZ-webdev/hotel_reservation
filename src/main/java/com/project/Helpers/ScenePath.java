@@ -3,7 +3,11 @@ package com.project.Helpers;
 public enum ScenePath {
     HOME("home.fxml"),
     LOGIN("login.fxml"),
-    ROOM("room.fxml")
+    ROOM("room.fxml"),
+    GUEST("guests.fxml"),
+    USERS("users.fxml"),
+    RESERVATION("reservation.fxml"),
+
     ;
     private final String path;
 

@@ -9,9 +9,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
+
 
 import java.io.IOException;
 import java.net.URL;
@@ -34,6 +37,7 @@ public class RoomController implements Initializable, IMenu {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setObList();
         fillTable();
+        addTableSettings();
     }
 
     public void fillTable() {
@@ -42,15 +46,8 @@ public class RoomController implements Initializable, IMenu {
         roomCapacity.setCellValueFactory(new PropertyValueFactory<>("room_capacity"));
         roomType.setCellValueFactory(new PropertyValueFactory<>("room_type"));
         fee.setCellValueFactory(new PropertyValueFactory<>("room_fee"));
-//        ownerColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-//        typeColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-//        vaccineColumn.setCellFactory(col -> new TableCell<>() {
-//            @Override
-//            protected void updateItem(Boolean item, boolean empty) {
-//                super.updateItem(item, empty);
-//                setText(empty ? null : item ? "Yes" : "No");
-//            }
-//        });
+        roomType.setCellFactory(TextFieldTableCell.forTableColumn());
+
         tableView.setItems(getRoomsList());
     }
     private ObservableList<Room> getRoomsList() {
@@ -62,13 +59,20 @@ public class RoomController implements Initializable, IMenu {
     private void addTableSettings() {
         tableView.setEditable(true);
         tableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-//        tableView.setItems(getSortedList());
     }
 
     private void setObList() {
         roomsObList.clear();
         roomsObList.addAll(roomDAO.getRooms());
     }
+
+
+    public void changeNameCell(TableColumn.CellEditEvent<Room, String> editEvent) {
+        Room selectedRoom = tableView.getSelectionModel().getSelectedItem();
+        selectedRoom.setRoom_type(editEvent.getNewValue().toString());
+        roomDAO.updateRoom(selectedRoom);
+    }
+
 
     @Override
     public void showHomeScreen(ActionEvent event) throws IOException {

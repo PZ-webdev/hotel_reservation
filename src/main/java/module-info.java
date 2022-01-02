@@ -16,4 +16,5 @@ module com.project {
     exports com.project.DAO;
 
     opens com.project.Models;
+    opens com.project.Controllers to javafx.fxml;
 }

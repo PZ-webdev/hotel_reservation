@@ -1,42 +1,61 @@
 package com.project.Controllers;
 
+import com.project.DAO.RoomDAO;
 import com.project.Models.Room;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXMLLoader;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
-import javafx.util.Callback;
-import javafx.util.Duration;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Logger;
 
 public class RoomController implements Initializable {
-    private TableView tableView;
-    private final static Logger LOG = Logger.getLogger(String.valueOf(RoomController.class));
-    public RoomController() {}
+    public TableView<Room> tableView;
+    public TableColumn<Room, Integer> idColumn;
+    public TableColumn<Room, Boolean> isEmpty;
+    public TableColumn<Room, String> roomCapacity;
+    public TableColumn<Room, String> roomType;
 
+    RoomDAO roomDAO = new RoomDAO();
+    ObservableList<Room> roomsObList = FXCollections.observableArrayList();
+
+
+
+    public RoomController() {}
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        updateList();
+        setObList();
+        fillTable();
     }
 
 
-    public void updateList() {
-        //
+    public void fillTable() {
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("id_room"));
+        isEmpty.setCellValueFactory(new PropertyValueFactory<>("is_empty"));
+        roomCapacity.setCellValueFactory(new PropertyValueFactory<>("room_capacity"));
+        roomType.setCellValueFactory(new PropertyValueFactory<>("room_type"));
+//        ownerColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+//        typeColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+//        vaccineColumn.setCellFactory(col -> new TableCell<>() {
+//            @Override
+//            protected void updateItem(Boolean item, boolean empty) {
+//                super.updateItem(item, empty);
+//                setText(empty ? null : item ? "Yes" : "No");
+//            }
+//        });
+    }
+    private void setObList() {
+        roomsObList.clear();
+        roomsObList.addAll(roomDAO.getRooms());
+    }
+    public void showHomeScreen(ActionEvent event) throws IOException {
+        SceneController.getMainScene(event);
     }
 }

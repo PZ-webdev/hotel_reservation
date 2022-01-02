@@ -26,18 +26,17 @@ public class SceneController {
         Scene scene = new Scene(main);
         controlDrag(stage);
         stage.initStyle(StageStyle.UNDECORATED);
-        stage.setTitle("Login - Hotel Reservation");
+        stage.setTitle("Hotel Reservation");
         stage.setScene(scene);
         stage.show();
     }
 
     public static void getMainScene(ActionEvent event) throws IOException {
-        System.out.println("Zmiana sceny na home: ");
+        Scene scene = new Scene(main);
         changeScreen(event, ScenePath.HOME.getPath());
     }
 
     public static void getRoomScene(ActionEvent event) throws IOException {
-        System.out.println("Zmiana sceny na Room: ");
         changeScreen(event, ScenePath.ROOM.getPath());
     }
 

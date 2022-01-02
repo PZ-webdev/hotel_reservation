@@ -1,6 +1,7 @@
 package com.project.Models;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "guests")
@@ -12,38 +13,39 @@ public class Guest {
     @ManyToOne(targetEntity = Room.class)
     @JoinColumn(name = "id_room")
         private Room roomID;
-    @Column(name = "firstname")
-        private String firstName;
-    @Column(name = "lastname")
-        private String lastName;
+//    @Column(name = "firstname")
+//        private String firstName;
+    @Column(name = "name")
+        private String name;
+//    @Column(name = "lastname")
+//        private String lastName;
     @Column(name = "email")
         private String email;
-    @Column(name = "address")
-        private String address;
-    @Column(name = "city")
-        private String city;
     @Column(name = "phone")
         private long phone;
-    @Column(name = "card_number")
-        private long cardNumber;
+   @Column(name = "date_start")
+        private Date date_start;
+    @Column(name = "date_end")
+        private Date date_end;
     @Column(name = "number_of_days")
         private int numberOfDays;
     @Column(name = "fees")
         private double fees;
 
-    public Guest() {}
 
-    public Guest(Room roomID, String firstName, String lastName, String email, String address, String city, long phone, long cardNumber, int numberOfDays, double fees) {
+    public Guest(Room roomID, String name, String email, long phone, Date date_start, Date date_end, int numberOfDays, double fees) {
         this.roomID = roomID;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.name = name;
         this.email = email;
-        this.address = address;
-        this.city = city;
         this.phone = phone;
-        this.cardNumber = cardNumber;
+        this.date_start = date_start;
+        this.date_end = date_end;
         this.numberOfDays = numberOfDays;
         this.fees = fees;
+    }
+
+    public Guest() {
+
     }
 
     public int getGuestID() {
@@ -62,20 +64,12 @@ public class Guest {
         this.roomID = roomID;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -86,22 +80,6 @@ public class Guest {
         this.email = email;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
     public long getPhone() {
         return phone;
     }
@@ -110,12 +88,20 @@ public class Guest {
         this.phone = phone;
     }
 
-    public long getCardNumber() {
-        return cardNumber;
+    public Date getDate_start() {
+        return date_start;
     }
 
-    public void setCardNumber(long cardNumber) {
-        this.cardNumber = cardNumber;
+    public void setDate_start(Date date_start) {
+        this.date_start = date_start;
+    }
+
+    public Date getDate_end() {
+        return date_end;
+    }
+
+    public void setDate_end(Date date_end) {
+        this.date_end = date_end;
     }
 
     public int getNumberOfDays() {
@@ -133,21 +119,4 @@ public class Guest {
     public void setFees(double fees) {
         this.fees = fees;
     }
-
-    @Override
-    public String toString() {
-        return "GuestsModel{" +
-                "roomID=" + roomID +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", address='" + address + '\'' +
-                ", city='" + city + '\'' +
-                ", phone=" + phone +
-                ", cardNumber=" + cardNumber +
-                ", numberOfDays=" + numberOfDays +
-                ", fees=" + fees +
-                '}';
-    }
-
 }

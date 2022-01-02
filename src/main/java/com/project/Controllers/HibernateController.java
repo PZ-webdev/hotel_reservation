@@ -8,12 +8,16 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import javax.persistence.criteria.CriteriaQuery;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 public class HibernateController {
     public HibernateController() {}
 
-   public void addDataToDatabase(){
+   public void addDataToDatabase() throws ParseException {
        SessionFactory sessionFactory = SingletonConnection.getSessionFactory();
        /*
         * ROOM MODEL
@@ -42,9 +46,14 @@ public class HibernateController {
        session.beginTransaction();
        Room pokoj1 = session.get(Room.class, 1);
        Room pokoj2 = session.get(Room.class, 2);
+       String date1String = "2022.01.02";
+       String date2String = "2022.01.04";
+       SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy.MM.dd");
+       Date date1 = sdf1.parse(date1String);
+       Date date2 = sdf1.parse(date2String);
 
-       session.save(new Guest(pokoj1, "Jan", "Kowalski", "kowalski@wp.pl", "Cicha 26", "Rzeszów", 156789856, 787897899, 30,360.3));
-       session.save(new Guest(pokoj2, "Anna", "Kowalska", "AnkaKowalska@wp.pl", "Glosna 26", "Rzeszów", 336969856, 999897899, 20,260.3));
+       session.save(new Guest(pokoj1, "Jan Kowalski", "kowal@wp.pl", 666999888, date1, date2, 2,150.0));
+       session.save(new Guest(pokoj2, "Anna Wróbel", "wroble@gmail.com", 558887987, date1, date2, 2,250.0));
        session.getTransaction().commit();
 
        // Pobranie wszystkich obiektów danej klasy z bazy danych

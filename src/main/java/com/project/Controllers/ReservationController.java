@@ -14,6 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class ReservationController implements Initializable, IMenu {
@@ -21,8 +22,9 @@ public class ReservationController implements Initializable, IMenu {
     ObservableList<Guest> guestsObList = FXCollections.observableArrayList();
     public TableView<Guest> tableView;
     public TableColumn<Guest, Integer> idColumn;
-    public TableColumn<Guest, String> firstname;
-    public TableColumn<Guest, String> lastname;
+    public TableColumn<Guest, String> name;
+    public TableColumn<Guest, Date> date_start;
+    public TableColumn<Guest, Date> date_end;
     public TableColumn<Guest, Integer> numberOfDays;
     public TableColumn<Guest, Double> fees;
     @Override
@@ -32,15 +34,16 @@ public class ReservationController implements Initializable, IMenu {
     }
     public void fillTable() {
         idColumn.setCellValueFactory(new PropertyValueFactory<>("guestID"));
-        firstname.setCellValueFactory(new PropertyValueFactory<>("firstName"));
-        lastname.setCellValueFactory(new PropertyValueFactory<>("lastName"));
+        name.setCellValueFactory(new PropertyValueFactory<>("name"));
+        date_start.setCellValueFactory(new PropertyValueFactory<>("date_start"));
+        date_end.setCellValueFactory(new PropertyValueFactory<>("date_end"));
 //        roomType.setCellValueFactory(new PropertyValueFactory<>("room_type"));
         numberOfDays.setCellValueFactory(new PropertyValueFactory<>("numberOfDays"));
         fees.setCellValueFactory(new PropertyValueFactory<>("fees"));
 
-        tableView.setItems(getRoomsList());
+        tableView.setItems(getGuestsList());
     }
-    private ObservableList<Guest> getRoomsList() {
+    private ObservableList<Guest> getGuestsList() {
         ObservableList<Guest> consults = FXCollections.observableArrayList();
         consults.addAll(guestDAO.getGuests());
         return consults;

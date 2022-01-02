@@ -24,12 +24,12 @@
                         </Text>
                     </children>
                 </Pane>
-                <Button fx:id="home_button" mnemonicParsing="false" prefHeight="70.0" prefWidth="266.0" text="Start" />
-                <Button fx:id="guest_button" mnemonicParsing="false" prefHeight="70.0" prefWidth="266.0" text="Obecni Goście" />
-                <Button fx:id="reservation_button" mnemonicParsing="false" prefHeight="70.0" prefWidth="266.0" text="Rezerwacje" />
-                <Button fx:id="rooms_button" mnemonicParsing="false" prefHeight="70.0" prefWidth="266.0" text="Pokoje" />
-                <Button fx:id="users_button" mnemonicParsing="false" prefHeight="70.0" prefWidth="266.0" text="Użytkownicy" />
-                <Button fx:id="close_button" mnemonicParsing="false" prefHeight="70.0" prefWidth="266.0" text="Zamknij" />
+                <Button fx:id="home_button" mnemonicParsing="false" prefHeight="70.0" prefWidth="266.0" text="Start" onAction="#showHomeScreen"/>
+                <Button fx:id="guest_button" mnemonicParsing="false" prefHeight="70.0" prefWidth="266.0" text="Obecni Goście" onAction="#showGuestScreen"/>
+                <Button fx:id="reservation_button" mnemonicParsing="false" prefHeight="70.0" prefWidth="266.0" text="Rezerwacje" onAction="#showReservationScreen"/>
+                <Button fx:id="rooms_button" mnemonicParsing="false" prefHeight="70.0" prefWidth="266.0" text="Pokoje" onAction="#showRoomScreen"/>
+                <Button fx:id="users_button" mnemonicParsing="false" prefHeight="70.0" prefWidth="266.0" text="Użytkownicy" onAction="#showUserScreen"/>
+                <Button fx:id="close_button" mnemonicParsing="false" prefHeight="70.0" prefWidth="266.0" text="Zamknij" onAction="#close"/>
             </children>
         </VBox>
         <VBox layoutX="265.0" prefHeight="550.0" prefWidth="600.0">

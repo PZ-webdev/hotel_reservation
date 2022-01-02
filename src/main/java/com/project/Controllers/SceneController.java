@@ -32,7 +32,6 @@ public class SceneController {
     }
 
     public static void getHomeScene(ActionEvent event) throws IOException {
-        Scene scene = new Scene(main);
         changeScreen(event, ScenePath.HOME.getPath());
     }
     public static void getLoginScene(ActionEvent event) throws IOException {

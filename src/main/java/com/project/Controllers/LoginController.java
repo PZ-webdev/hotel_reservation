@@ -71,7 +71,7 @@ public class LoginController implements Initializable {
         PauseTransition delay = new PauseTransition(Duration.seconds(2));
         delay.setOnFinished( event2 -> {
             try {
-                SceneController.getRoomScene((ActionEvent) event);
+                SceneController.getHomeScene((ActionEvent) event);
             } catch (IOException e) {
                 e.printStackTrace();
             }

@@ -16,7 +16,7 @@ public class RoomDAO {
     public List<Room> getRooms() {
         try (Session session = SingletonConnection.getSessionFactory().openSession()) {
             System.out.println("");
-            return session.createQuery("From Room", Room.class).list();
+            return session.createQuery("from Room", Room.class).list();
         } catch (Exception ex) {
             ex.printStackTrace();
             return new ArrayList<>();

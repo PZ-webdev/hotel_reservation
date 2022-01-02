@@ -8,6 +8,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -22,6 +23,7 @@ public class RoomController implements Initializable, IMenu {
     public TableColumn<Room, Boolean> isEmpty;
     public TableColumn<Room, String> roomCapacity;
     public TableColumn<Room, String> roomType;
+    public TableColumn<Room, Double> fee;
 
     RoomDAO roomDAO = new RoomDAO();
     ObservableList<Room> roomsObList = FXCollections.observableArrayList();
@@ -38,10 +40,11 @@ public class RoomController implements Initializable, IMenu {
 
 
     public void fillTable() {
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("id_room"));
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("roomID"));
         isEmpty.setCellValueFactory(new PropertyValueFactory<>("is_empty"));
         roomCapacity.setCellValueFactory(new PropertyValueFactory<>("room_capacity"));
         roomType.setCellValueFactory(new PropertyValueFactory<>("room_type"));
+        fee.setCellValueFactory(new PropertyValueFactory<>("room_fee"));
 //        ownerColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 //        typeColumn.setCellFactory(TextFieldTableCell.forTableColumn());
 //        vaccineColumn.setCellFactory(col -> new TableCell<>() {
@@ -51,7 +54,20 @@ public class RoomController implements Initializable, IMenu {
 //                setText(empty ? null : item ? "Yes" : "No");
 //            }
 //        });
+        tableView.setItems(getRoomsList());
     }
+    private ObservableList<Room> getRoomsList() {
+        ObservableList<Room> consults = FXCollections.observableArrayList();
+        consults.addAll(roomDAO.getRooms());
+        return consults;
+    }
+
+    private void addTableSettings() {
+        tableView.setEditable(true);
+        tableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+//        tableView.setItems(getSortedList());
+    }
+
     private void setObList() {
         roomsObList.clear();
         roomsObList.addAll(roomDAO.getRooms());

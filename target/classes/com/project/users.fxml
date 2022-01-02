@@ -44,7 +44,12 @@
                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                             </columnResizePolicy>
                         </TableView>
-                        <Button layoutX="505.0" layoutY="14.0" mnemonicParsing="false" text="Dodaj Pokój" />
+                        <Button layoutX="505.0" layoutY="14.0" mnemonicParsing="false" text="Dodaj Użytkownika" />
+                        <Text layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Użytkownicy" textAlignment="CENTER" wrappingWidth="600.0">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Text>
                     </children>
                 </Pane>
             </children>

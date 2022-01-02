@@ -34,12 +34,12 @@
          <children>
             <Pane prefHeight="550.0" prefWidth="615.0">
                <children>
-                  <TableView layoutX="-14.0" layoutY="59.0" prefHeight="490.0" prefWidth="615.0">
+                  <TableView layoutX="-14.0" layoutY="59.0" prefHeight="490.0" prefWidth="615.0" fx:id="tableView">
                     <columns>
                       <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
                         <TableColumn fx:id="roomType" prefWidth="75.0" text="Room Type" />
                         <TableColumn fx:id="roomCapacity" prefWidth="75.0" text="Capacity" />
-                        <TableColumn  prefWidth="75.0" text="Fee" />
+                        <TableColumn fx:id="fee" prefWidth="75.0" text="Fee" />
                         <TableColumn fx:id="isEmpty" prefWidth="75.0" text="Is Empty" />
                     </columns>
                      <columnResizePolicy>
@@ -47,6 +47,11 @@
                      </columnResizePolicy>
                   </TableView>
                   <Button layoutX="505.0" layoutY="14.0" mnemonicParsing="false" text="Dodaj Pokój" />
+                   <Text layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pokoje" textAlignment="CENTER" wrappingWidth="600.0">
+                       <font>
+                           <Font name="System Bold" size="18.0" />
+                       </font>
+                   </Text>
                </children>
             </Pane>
          </children>

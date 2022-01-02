@@ -28,8 +28,6 @@ public class RoomController implements Initializable, IMenu {
     RoomDAO roomDAO = new RoomDAO();
     ObservableList<Room> roomsObList = FXCollections.observableArrayList();
 
-
-
     public RoomController() {}
 
     @Override
@@ -37,7 +35,6 @@ public class RoomController implements Initializable, IMenu {
         setObList();
         fillTable();
     }
-
 
     public void fillTable() {
         idColumn.setCellValueFactory(new PropertyValueFactory<>("roomID"));

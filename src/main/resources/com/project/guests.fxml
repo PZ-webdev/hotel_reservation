@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.project.Controllers.GuestController"
-            prefHeight="400.0" prefWidth="600.0">
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.Controllers.GuestController">
     <children>
         <VBox layoutX="-1.0" prefHeight="550.0" prefWidth="250.0" style="-fx-background-color: #3F2B63;">
             <children>
@@ -21,12 +22,12 @@
                         </Text>
                     </children>
                 </Pane>
-                <Button fx:id="home_button" mnemonicParsing="false" prefHeight="70.0" prefWidth="266.0" text="Start" onAction="#showHomeScreen"/>
-                <Button fx:id="guest_button" mnemonicParsing="false" prefHeight="70.0" prefWidth="266.0" text="Obecni Goście" onAction="#showGuestScreen"/>
-                <Button fx:id="reservation_button" mnemonicParsing="false" prefHeight="70.0" prefWidth="266.0" text="Rezerwacje" onAction="#showReservationScreen"/>
-                <Button fx:id="rooms_button" mnemonicParsing="false" prefHeight="70.0" prefWidth="266.0" text="Pokoje" onAction="#showRoomScreen"/>
-                <Button fx:id="users_button" mnemonicParsing="false" prefHeight="70.0" prefWidth="266.0" text="Użytkownicy" onAction="#showUserScreen"/>
-                <Button fx:id="close_button" mnemonicParsing="false" prefHeight="70.0" prefWidth="266.0" text="Zamknij" onAction="#close"/>
+                <Button fx:id="home_button" mnemonicParsing="false" onAction="#showHomeScreen" prefHeight="70.0" prefWidth="266.0" text="Start" />
+                <Button fx:id="guest_button" mnemonicParsing="false" onAction="#showGuestScreen" prefHeight="70.0" prefWidth="266.0" text="Obecni Goście" />
+                <Button fx:id="reservation_button" mnemonicParsing="false" onAction="#showReservationScreen" prefHeight="70.0" prefWidth="266.0" text="Rezerwacje" />
+                <Button fx:id="rooms_button" mnemonicParsing="false" onAction="#showRoomScreen" prefHeight="70.0" prefWidth="266.0" text="Pokoje" />
+                <Button fx:id="users_button" mnemonicParsing="false" onAction="#showUserScreen" prefHeight="70.0" prefWidth="266.0" text="Użytkownicy" />
+                <Button fx:id="close_button" mnemonicParsing="false" onAction="#close" prefHeight="70.0" prefWidth="266.0" text="Zamknij" />
             </children>
         </VBox>
         <VBox layoutX="265.0" prefHeight="550.0" prefWidth="600.0">
@@ -38,7 +39,7 @@
                                 <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
                                 <TableColumn fx:id="roomType" prefWidth="75.0" text="Room Type" />
                                 <TableColumn fx:id="roomCapacity" prefWidth="75.0" text="Capacity" />
-                                <TableColumn  prefWidth="75.0" text="Fee" />
+                                <TableColumn fx:id="" prefWidth="75.0" text="Fee" />
                                 <TableColumn fx:id="isEmpty" prefWidth="75.0" text="Is Empty" />
                             </columns>
                             <columnResizePolicy>
@@ -46,6 +47,11 @@
                             </columnResizePolicy>
                         </TableView>
                         <Button layoutX="505.0" layoutY="14.0" mnemonicParsing="false" text="Dodaj Pokój" />
+                  <Text layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Obecni Goście" textAlignment="CENTER" wrappingWidth="600.0">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Text>
                     </children>
                 </Pane>
             </children>

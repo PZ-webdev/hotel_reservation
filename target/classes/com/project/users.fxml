@@ -8,7 +8,8 @@
 
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.Font?>
-<AnchorPane xmlns="http://javafx.com/javafx"
+<AnchorPane stylesheets="@css/style.css"
+            xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.project.Controllers.UserController"
             prefHeight="400.0" prefWidth="600.0">

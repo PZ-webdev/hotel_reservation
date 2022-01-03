@@ -46,12 +46,10 @@ public class AddReservationController implements Initializable, IMenu {
 
     public void saveNewGuestToDb(ActionEvent event) throws IOException {
         if(validateInputs()) {
-//            Consult consult = createConsultFromInput();
             Guest guest = createGuestFromInput();
 
             boolean isSaved = new GuestDAO().create(guest);
             if (isSaved) {
-                System.out.println("dodano");
                 textValidLabel.setText("Dodano Rezerwację");
                 delayWindowClose(event);
             }

@@ -1,6 +1,7 @@
 package com.project.Models;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -13,27 +14,23 @@ public class Guest {
     @ManyToOne(targetEntity = Room.class)
     @JoinColumn(name = "id_room")
         private Room roomID;
-//    @Column(name = "firstname")
-//        private String firstName;
     @Column(name = "name")
         private String name;
-//    @Column(name = "lastname")
-//        private String lastName;
     @Column(name = "email")
         private String email;
     @Column(name = "phone")
         private long phone;
    @Column(name = "date_start")
-        private Date date_start;
+        private LocalDate date_start;
     @Column(name = "date_end")
-        private Date date_end;
+        private LocalDate date_end;
     @Column(name = "number_of_days")
         private int numberOfDays;
     @Column(name = "fees")
         private double fees;
 
 
-    public Guest(Room roomID, String name, String email, long phone, Date date_start, Date date_end, int numberOfDays, double fees) {
+    public Guest(Room roomID, String name, String email, long phone, LocalDate date_start, LocalDate date_end, int numberOfDays, double fees) {
         this.roomID = roomID;
         this.name = name;
         this.email = email;
@@ -44,9 +41,7 @@ public class Guest {
         this.fees = fees;
     }
 
-    public Guest() {
-
-    }
+    public Guest() {}
 
     public int getGuestID() {
         return guestID;
@@ -88,19 +83,19 @@ public class Guest {
         this.phone = phone;
     }
 
-    public Date getDate_start() {
+    public LocalDate getDate_start() {
         return date_start;
     }
 
-    public void setDate_start(Date date_start) {
+    public void setDate_start(LocalDate date_start) {
         this.date_start = date_start;
     }
 
-    public Date getDate_end() {
+    public LocalDate getDate_end() {
         return date_end;
     }
 
-    public void setDate_end(Date date_end) {
+    public void setDate_end(LocalDate date_end) {
         this.date_end = date_end;
     }
 

@@ -38,11 +38,11 @@
                     <children>
                         <TableView layoutX="-14.0" layoutY="59.0" prefHeight="490.0" prefWidth="615.0" fx:id="tableView">
                             <columns>
-                                <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
-                                <TableColumn fx:id="name" prefWidth="75.0" text="Name" />
-                                <TableColumn fx:id="date_start" prefWidth="75.0" text="Date Start" />
-                                <TableColumn fx:id="date_end" prefWidth="75.0" text="Date End" />
-                                <TableColumn fx:id="numberOfDays" prefWidth="75.0" text="Days" />
+                                <TableColumn fx:id="idColumn" prefWidth="25.0" text="ID" />
+                                <TableColumn fx:id="name" prefWidth="100.0" text="Name" />
+                                <TableColumn fx:id="date_start" prefWidth="100.0" text="Date Start" />
+                                <TableColumn fx:id="date_end" prefWidth="100.0" text="Date End" />
+                                <TableColumn fx:id="numberOfDays" prefWidth="50.0" text="Days" />
                                 <TableColumn fx:id="fees" prefWidth="75.0" text="Fee" />
                             </columns>
                             <columnResizePolicy>

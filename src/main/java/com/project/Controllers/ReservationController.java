@@ -1,6 +1,6 @@
 package com.project.Controllers;
 
-import com.project.DAO.GuestDAO;
+import com.project.DAO.ReservationDAO;
 import com.project.Helpers.IMenu;
 import com.project.Models.Guest;
 import javafx.collections.FXCollections;
@@ -18,7 +18,7 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 public class ReservationController implements Initializable, IMenu {
-    GuestDAO guestDAO = new GuestDAO();
+    ReservationDAO guestDAO = new ReservationDAO();
     ObservableList<Guest> guestsObList = FXCollections.observableArrayList();
     public TableView<Guest> tableView;
     public TableColumn<Guest, Integer> idColumn;

@@ -46,14 +46,10 @@ public class HibernateController {
        session.beginTransaction();
        Room pokoj1 = session.get(Room.class, 1);
        Room pokoj2 = session.get(Room.class, 2);
-       String date1String = "2022.01.02";
-       String date2String = "2022.01.04";
-       SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy.MM.dd");
-       Date date1 = sdf1.parse(date1String);
-       Date date2 = sdf1.parse(date2String);
 
-       session.save(new Guest(pokoj1, "Jan Kowalski", "kowal@wp.pl", 666999888, date1, date2, 2,150.0));
-       session.save(new Guest(pokoj2, "Anna Wróbel", "wroble@gmail.com", 558887987, date1, date2, 2,250.0));
+       session.save(new Guest(pokoj1, "Jan Kowalski", "kowal@wp.pl", 666999888, LocalDate.now(), LocalDate.now().plusDays(2), 2,150.0));
+       session.save(new Guest(pokoj2, "Anna Wróbel", "wroble@gmail.com", 558887987, LocalDate.now(), LocalDate.now().plusDays(3), 3,250.0));
+       session.save(new Guest(pokoj2, "Kamil Kowal", "kowal@gmail.com", 558887987, LocalDate.now().minusDays(4), LocalDate.now().minusDays(2), 2,250.0));
        session.getTransaction().commit();
 
        // Pobranie wszystkich obiektów danej klasy z bazy danych

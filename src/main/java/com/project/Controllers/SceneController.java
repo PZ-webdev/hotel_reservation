@@ -22,7 +22,7 @@ public class SceneController {
     private static Parent main;
 
     public static void getInitialScene(Stage stage) throws IOException {
-        main = FXMLLoader.load((Main.class.getResource(ScenePath.HOME.getPath())));
+        main = FXMLLoader.load((Main.class.getResource(ScenePath.LOGIN.getPath())));
         Scene scene = new Scene(main);
         controlDrag(stage);
         stage.initStyle(StageStyle.UNDECORATED);

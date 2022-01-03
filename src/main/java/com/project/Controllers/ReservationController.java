@@ -27,6 +27,7 @@ public class ReservationController implements Initializable, IMenu {
     public TableColumn<Guest, Date> date_end;
     public TableColumn<Guest, Integer> numberOfDays;
     public TableColumn<Guest, Double> fees;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setObList();
@@ -93,5 +94,11 @@ public class ReservationController implements Initializable, IMenu {
     @Override
     public void close(ActionEvent event) throws IOException {
         SceneController.close(event);
+    }
+
+    @Override
+    public void showAddReservation(ActionEvent event) throws IOException {
+        System.out.println("Pokaz dodawanie rezerwacji");
+        SceneController.getAddReservationScene(event);
     }
 }

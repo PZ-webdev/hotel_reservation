@@ -24,20 +24,17 @@ public class Guest {
         private LocalDate date_start;
     @Column(name = "date_end")
         private LocalDate date_end;
-    @Column(name = "number_of_days")
-        private int numberOfDays;
     @Column(name = "fees")
         private double fees;
 
 
-    public Guest(Room roomID, String name, String email, long phone, LocalDate date_start, LocalDate date_end, int numberOfDays, double fees) {
+    public Guest(Room roomID, String name, String email, long phone, LocalDate date_start, LocalDate date_end, double fees) {
         this.roomID = roomID;
         this.name = name;
         this.email = email;
         this.phone = phone;
         this.date_start = date_start;
         this.date_end = date_end;
-        this.numberOfDays = numberOfDays;
         this.fees = fees;
     }
 
@@ -97,14 +94,6 @@ public class Guest {
 
     public void setDate_end(LocalDate date_end) {
         this.date_end = date_end;
-    }
-
-    public int getNumberOfDays() {
-        return numberOfDays;
-    }
-
-    public void setNumberOfDays(int numberOfDays) {
-        this.numberOfDays = numberOfDays;
     }
 
     public double getFees() {

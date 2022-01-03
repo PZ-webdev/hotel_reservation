@@ -96,4 +96,9 @@ public class GuestController  implements Initializable, IMenu {
     public void close(ActionEvent event) throws IOException {
         SceneController.close(event);
     }
+
+    @Override
+    public void showAddReservation(ActionEvent event) throws IOException {
+        //
+    }
 }

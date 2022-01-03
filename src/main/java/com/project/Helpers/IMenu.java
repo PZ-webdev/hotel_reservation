@@ -12,4 +12,5 @@ public interface IMenu {
     void showUserScreen(ActionEvent event) throws IOException;
     void showReservationScreen(ActionEvent event) throws IOException;
     void close(ActionEvent event) throws IOException;
+    void showAddReservation(ActionEvent event) throws IOException;
 }

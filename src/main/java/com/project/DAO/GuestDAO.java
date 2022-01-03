@@ -2,7 +2,9 @@ package com.project.DAO;
 
 import com.project.Models.Guest;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import org.hibernate.resource.transaction.spi.TransactionStatus;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -21,5 +23,22 @@ public class GuestDAO {
             ex.printStackTrace();
             return new ArrayList<>();
         }
+    }
+
+    public boolean create(Guest guest) {
+        Transaction transaction = null;
+        try (Session session = SingletonConnection.getSessionFactory().openSession()) {
+            transaction = session.beginTransaction();
+            session.saveOrUpdate(guest);
+            transaction.commit();
+            return transaction.getStatus() == TransactionStatus.COMMITTED;
+        } catch (Exception ex) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            ex.printStackTrace();
+        }
+        return false;
+
     }
 }

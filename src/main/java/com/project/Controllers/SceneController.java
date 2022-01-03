@@ -22,7 +22,7 @@ public class SceneController {
     private static Parent main;
 
     public static void getInitialScene(Stage stage) throws IOException {
-        main = FXMLLoader.load((Main.class.getResource(ScenePath.LOGIN.getPath())));
+        main = FXMLLoader.load((Main.class.getResource(ScenePath.HOME.getPath())));
         Scene scene = new Scene(main);
         controlDrag(stage);
         stage.initStyle(StageStyle.UNDECORATED);
@@ -40,7 +40,6 @@ public class SceneController {
     public static void getRoomScene(ActionEvent event) throws IOException {
         changeScreen(event, ScenePath.ROOM.getPath());
     }
-
     public static void getGuestScene(ActionEvent event) throws IOException {
         changeScreen(event, ScenePath.GUEST.getPath());
     }
@@ -49,6 +48,9 @@ public class SceneController {
     }
     public static void getReservationScene(ActionEvent event) throws IOException {
         changeScreen(event, ScenePath.RESERVATION.getPath());
+    }
+    public static void getAddReservationScene(ActionEvent event) throws IOException {
+        changeScreen(event, ScenePath.ADD_RESERVATION.getPath());
     }
 
 

@@ -11,7 +11,7 @@ public class Guest {
     @Column(name = "id_quest", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
         private int guestID;
-    @ManyToOne(targetEntity = Room.class)
+    @ManyToOne(fetch = FetchType.EAGER, targetEntity = Room.class)
     @JoinColumn(name = "id_room")
         private Room roomID;
     @Column(name = "name")
@@ -96,9 +96,7 @@ public class Guest {
         this.date_end = date_end;
     }
 
-    public double getFees() {
-        return fees;
-    }
+    public double getFees() { return fees;}
 
     public void setFees(double fees) {
         this.fees = fees;

@@ -1,6 +1,8 @@
 package com.project.Models;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "rooms")
@@ -17,6 +19,10 @@ public class Room {
         private double room_fee;
     @Column(name = "is_empty")
         private boolean is_empty;
+    @OneToMany(mappedBy = "roomID",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    private Set<Room> roomSet = new HashSet<>();
 
     public Room() {
     }

@@ -74,6 +74,15 @@ public class RoomController implements Initializable, IMenu {
     }
 
 
+    public void deleteRooms(ActionEvent event) throws Exception {
+        ObservableList<Room> selectedRows = tableView.getSelectionModel().getSelectedItems();
+        for (Room room : selectedRows) {
+            System.out.println(room.getRoomID());
+            roomDAO.delete(room);
+        }
+        showRoomScreen(event);
+    }
+
     @Override
     public void showHomeScreen(ActionEvent event) throws IOException {
         SceneController.getHomeScene(event);

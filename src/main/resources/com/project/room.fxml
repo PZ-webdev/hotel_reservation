@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane stylesheets="@css/style.css" prefHeight="550.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.Controllers.RoomController">
+<AnchorPane prefHeight="550.0" prefWidth="850.0" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.Controllers.RoomController">
    <children>
       <VBox layoutX="-1.0" prefHeight="550.0" prefWidth="250.0" style="-fx-background-color: #3F2B63;">
          <children>
@@ -22,22 +22,22 @@
                   </Text>
                </children>
             </Pane>
-             <Button fx:id="home_button" mnemonicParsing="false" prefHeight="70.0" prefWidth="266.0" text="Start" onAction="#showHomeScreen"/>
-             <Button fx:id="guest_button" mnemonicParsing="false" prefHeight="70.0" prefWidth="266.0" text="Obecni Goście" onAction="#showGuestScreen"/>
-             <Button fx:id="reservation_button" mnemonicParsing="false" prefHeight="70.0" prefWidth="266.0" text="Rezerwacje" onAction="#showReservationScreen"/>
-             <Button fx:id="rooms_button" mnemonicParsing="false" prefHeight="70.0" prefWidth="266.0" text="Pokoje" onAction="#showRoomScreen"/>
-             <Button fx:id="users_button" mnemonicParsing="false" prefHeight="70.0" prefWidth="266.0" text="Użytkownicy" onAction="#showUserScreen"/>
-             <Button fx:id="close_button" mnemonicParsing="false" prefHeight="70.0" prefWidth="266.0" text="Zamknij" onAction="#close"/>
+             <Button fx:id="home_button" mnemonicParsing="false" onAction="#showHomeScreen" prefHeight="70.0" prefWidth="266.0" text="Start" />
+             <Button fx:id="guest_button" mnemonicParsing="false" onAction="#showGuestScreen" prefHeight="70.0" prefWidth="266.0" text="Obecni Goście" />
+             <Button fx:id="reservation_button" mnemonicParsing="false" onAction="#showReservationScreen" prefHeight="70.0" prefWidth="266.0" text="Rezerwacje" />
+             <Button fx:id="rooms_button" mnemonicParsing="false" onAction="#showRoomScreen" prefHeight="70.0" prefWidth="266.0" text="Pokoje" />
+             <Button fx:id="users_button" mnemonicParsing="false" onAction="#showUserScreen" prefHeight="70.0" prefWidth="266.0" text="Użytkownicy" />
+             <Button fx:id="close_button" mnemonicParsing="false" onAction="#close" prefHeight="70.0" prefWidth="266.0" text="Zamknij" />
          </children>
       </VBox>
       <VBox layoutX="265.0" prefHeight="550.0" prefWidth="600.0">
          <children>
             <Pane prefHeight="550.0" prefWidth="615.0">
                <children>
-                  <TableView layoutX="-14.0" layoutY="59.0" prefHeight="490.0" prefWidth="615.0" fx:id="tableView">
+                  <TableView fx:id="tableView" layoutX="-14.0" layoutY="59.0" prefHeight="436.0" prefWidth="615.0">
                     <columns>
                       <TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
-                        <TableColumn fx:id="roomType" prefWidth="75.0" text="Room Type" onEditCommit="#changeNameCell"/>
+                        <TableColumn fx:id="roomType" onEditCommit="#changeNameCell" prefWidth="75.0" text="Room Type" />
                         <TableColumn fx:id="roomCapacity" prefWidth="75.0" text="Capacity" />
                         <TableColumn fx:id="fee" prefWidth="75.0" text="Fee" />
                         <TableColumn fx:id="isEmpty" prefWidth="75.0" text="Is Empty" />
@@ -46,12 +46,13 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
-                  <Button layoutX="505.0" layoutY="14.0" mnemonicParsing="false" text="Dodaj Pokój" />
+                  <Button layoutX="490.0" layoutY="14.0" mnemonicParsing="false" text="Dodaj Pokój" styleClass="addbutton" />
                    <Text layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pokoje" textAlignment="CENTER" wrappingWidth="600.0">
                        <font>
                            <Font name="System Bold" size="18.0" />
                        </font>
                    </Text>
+                  <Button fx:id="deleteButton" layoutX="494.0" layoutY="504.0" mnemonicParsing="false" onAction="#deleteRooms" prefHeight="30.0" prefWidth="78.0" styleClass="deletebutton" text="Usuń" />
                </children>
             </Pane>
          </children>

@@ -32,6 +32,20 @@ public class RoomDAO {
             }
             ex.printStackTrace();
         }
-
     }
+
+    public void delete(Room room) {
+        Transaction transaction = null;
+        try (Session session = SingletonConnection.getSessionFactory().openSession()) {
+            transaction = session.beginTransaction();
+            session.delete(room);
+            transaction.commit();
+        } catch (Exception ex) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            ex.printStackTrace();
+        }
+    }
+
 }

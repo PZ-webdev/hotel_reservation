@@ -94,20 +94,7 @@ public class LoginController implements Initializable {
         return !login.getText().isEmpty() && !passwordField.getText().isEmpty();
     }
 
-
-    public void goToHomePage(Event event) {
-        try {
-            stage = (Stage) loginButton.getScene().getWindow();
-            root =  FXMLLoader.load(Main.class.getResource("room.fxml"));
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException ex) {
-            System.out.println("Error load homePage FXML !");
-            System.out.println(ex);
-        } catch (Exception e) {
-            System.out.println(e);
-            e.printStackTrace();
-        }
+    public void close(ActionEvent event) throws IOException {
+        SceneController.close(event);
     }
 }

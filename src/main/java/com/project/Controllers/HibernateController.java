@@ -65,6 +65,7 @@ public class HibernateController {
 
        session.beginTransaction();
        session.save(new User("Jan", "janek233", "jan@example.com", "password", true));
+       session.save(new User("Demo", "demo", "demo@example.com", "demo", true));
        session.save(new User("Adam", "adas75", "adam@example.com", "password", false));
        session.save(new User("Bartosz", "Bartek00", "bartek00@example.com", "password", false));
        session.save(new User("Anna", "anna093", "anka@example.com", "password", false));

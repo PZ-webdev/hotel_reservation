@@ -49,7 +49,7 @@
 }
 
 .table-view .table-cell{
-    -fx-padding: 0 0 0 30;
+    -fx-padding: 0 0 0 10;
     -fx-table-cell-border-color:transparent;
     -fx-text-fill: grey;
 }
@@ -121,4 +121,36 @@
     -fx-border-color: #fff;
     -fx-border-width: 2 2 2 2;
     -fx-font-weight: bold;
+}
+.deletebutton {
+    -fx-background-color: #fc583f;
+    -fx-background-radius: 3;
+    -fx-text-fill: #ffffff;
+    -fx-font: 14px Roboto;
+}
+
+.deletebutton:hover {
+    -fx-background-color: #e34d36;
+    -fx-text-fill: #ffffff;
+    -fx-font: 14px Roboto;
+}
+
+.addbutton {
+    -fx-background-color: #079cd9;
+    -fx-background-radius: 3;
+    -fx-text-fill: #ffffff;
+    -fx-font: 14px Roboto;
+}
+
+.addbutton:hover {
+    -fx-background-color: #0482b5;
+    -fx-text-fill: #ffffff;
+    -fx-font: 14px Roboto;
+}
+.login-button:hover {
+    -fx-background-color: #253b5f;
+    -fx-border-color: #fff;
+    -fx-border-width: 3 3 3 3;
+    -fx-text-fill: #fff;
+    -fx-background-radius: 3;
 }

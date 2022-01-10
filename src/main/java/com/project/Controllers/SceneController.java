@@ -52,6 +52,9 @@ public class SceneController {
     public static void getAddReservationScene(ActionEvent event) throws IOException {
         changeScreen(event, ScenePath.ADD_RESERVATION.getPath());
     }
+    public static void getAddRoomScene(ActionEvent event) throws IOException {
+        changeScreen(event, ScenePath.ADD_ROOM.getPath());
+    }
 
 
     private static void changeScreen(ActionEvent event, String path) throws IOException {

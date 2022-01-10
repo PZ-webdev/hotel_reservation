@@ -23,7 +23,6 @@ import java.util.ResourceBundle;
 public class RoomController implements Initializable, IMenu {
     public TableView<Room> tableView;
     public TableColumn<Room, Integer> idColumn;
-    public TableColumn<Room, Boolean> isEmpty;
     public TableColumn<Room, String> roomCapacity;
     public TableColumn<Room, String> roomType;
     public TableColumn<Room, Double> fee;
@@ -42,7 +41,6 @@ public class RoomController implements Initializable, IMenu {
 
     public void fillTable() {
         idColumn.setCellValueFactory(new PropertyValueFactory<>("roomID"));
-        isEmpty.setCellValueFactory(new PropertyValueFactory<>("is_empty"));
         roomCapacity.setCellValueFactory(new PropertyValueFactory<>("room_capacity"));
         roomType.setCellValueFactory(new PropertyValueFactory<>("room_type"));
         fee.setCellValueFactory(new PropertyValueFactory<>("room_fee"));
@@ -121,5 +119,9 @@ public class RoomController implements Initializable, IMenu {
     @Override
     public void showAddReservation(ActionEvent event) throws IOException {
         //
+    }
+
+    public void showAddRoom(ActionEvent event) throws IOException {
+        SceneController.getAddRoomScene(event);
     }
 }

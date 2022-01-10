@@ -25,11 +25,11 @@ public class HibernateController {
 
        Session session = sessionFactory.openSession();
        session.beginTransaction();
-       session.save(new Room("Normal", "Single", 350.0, true));
-       session.save(new Room("Normal", "Double", 450.0, false));
-       session.save(new Room("Economy", "Single", 400.0, true));
-       session.save(new Room("Economy", "Double", 550.0, true));
-       session.save(new Room("VIP", "Double", 700.0, false));
+       session.save(new Room("Normal", "Single", 350.0));
+       session.save(new Room("Normal", "Double", 450.0));
+       session.save(new Room("Economy", "Single", 400.0));
+       session.save(new Room("Economy", "Double", 550.0));
+       session.save(new Room("VIP", "Double", 700.0));
        session.getTransaction().commit();
 
        // Pobranie wszystkich obiektów danej klasy z bazy danych

@@ -4,6 +4,7 @@ import com.project.DAO.GuestDAO;
 import com.project.Helpers.IMenu;
 import com.project.Models.Guest;
 import com.project.Models.Room;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -11,10 +12,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.util.Callback;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
 
@@ -27,9 +29,8 @@ public class GuestController  implements Initializable, IMenu {
     public TableColumn<Guest, String> name;
     public TableColumn<Guest, Date> date_start;
     public TableColumn<Guest, Date> date_end;
-    public TableColumn<Guest, Integer> numberOfDays;
-    public TableColumn<Guest, Double> fees;
-    public TableColumn<Guest, String> roomType;
+    public TableColumn<Guest, Room> roomType;
+
     public GuestController() {
        //
     }
@@ -46,9 +47,14 @@ public class GuestController  implements Initializable, IMenu {
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
         date_start.setCellValueFactory(new PropertyValueFactory<>("date_start"));
         date_end.setCellValueFactory(new PropertyValueFactory<>("date_end"));
-        roomType.setCellValueFactory(new PropertyValueFactory<>("room_type"));
-        numberOfDays.setCellValueFactory(new PropertyValueFactory<>("numberOfDays"));
-        fees.setCellValueFactory(new PropertyValueFactory<>("fees"));
+//        roomType.setCellValueFactory(new PropertyValueFactory<>("roomID"));
+//        roomType.setCellValueFactory(new Callback<CellDataFeatures<Room, String>, ObservableValue<String>>() {
+//            public ObservableValue<String> call(CellDataFeatures<Room, String> p) {
+//                // p.getValue() returns the Person instance for a particular TableView row
+//                return p.getValue().firstNameProperty();
+//            }
+//        });
+//    }
 
         tableView.setItems(getGuestsList());
     }

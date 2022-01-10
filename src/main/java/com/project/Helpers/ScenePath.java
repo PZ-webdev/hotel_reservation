@@ -8,6 +8,7 @@ public enum ScenePath {
     USERS("users.fxml"),
     RESERVATION("reservation.fxml"),
     ADD_RESERVATION("addReservation.fxml"),
+    ADD_ROOM("addRoom.fxml"),
     ;
     private final String path;
 

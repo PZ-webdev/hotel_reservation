@@ -1,8 +1,10 @@
 package com.project.DAO;
 
+import com.project.Models.Guest;
 import com.project.Models.Room;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.resource.transaction.spi.TransactionStatus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +48,22 @@ public class RoomDAO {
             }
             ex.printStackTrace();
         }
+    }
+
+    public boolean create(Room room) {
+        Transaction transaction = null;
+        try (Session session = SingletonConnection.getSessionFactory().openSession()) {
+            transaction = session.beginTransaction();
+            session.saveOrUpdate(room);
+            transaction.commit();
+            return transaction.getStatus() == TransactionStatus.COMMITTED;
+        } catch (Exception ex) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            ex.printStackTrace();
+        }
+        return false;
     }
 
 }

@@ -39,8 +39,6 @@ public class ReservationController implements Initializable, IMenu {
         date_start.setCellValueFactory(new PropertyValueFactory<>("date_start"));
         date_end.setCellValueFactory(new PropertyValueFactory<>("date_end"));
 //        roomType.setCellValueFactory(new PropertyValueFactory<>("room_type"));
-        numberOfDays.setCellValueFactory(new PropertyValueFactory<>("numberOfDays"));
-        fees.setCellValueFactory(new PropertyValueFactory<>("fees"));
 
         tableView.setItems(getGuestsList());
     }
@@ -53,7 +51,6 @@ public class ReservationController implements Initializable, IMenu {
     private void addTableSettings() {
         tableView.setEditable(true);
         tableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
-//        tableView.setItems(getSortedList());
     }
 
     private void setObList() {
@@ -98,7 +95,6 @@ public class ReservationController implements Initializable, IMenu {
 
     @Override
     public void showAddReservation(ActionEvent event) throws IOException {
-        System.out.println("Pokaz dodawanie rezerwacji");
         SceneController.getAddReservationScene(event);
     }
 }

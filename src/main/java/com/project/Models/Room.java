@@ -17,8 +17,6 @@ public class Room {
         private String room_capacity;
     @Column(name = "room_fee")
         private double room_fee;
-    @Column(name = "is_empty")
-        private boolean is_empty;
     @OneToMany(mappedBy = "roomID",
             cascade = CascadeType.ALL,
             orphanRemoval = true)
@@ -27,11 +25,10 @@ public class Room {
     public Room() {
     }
 
-    public Room(String room_type, String room_capacity, double room_fee, boolean is_empty) {
+    public Room(String room_type, String room_capacity, double room_fee) {
         this.room_type = room_type;
         this.room_capacity = room_capacity;
         this.room_fee = room_fee;
-        this.is_empty = is_empty;
     }
 
     public int getRoomID() {
@@ -66,11 +63,6 @@ public class Room {
         this.room_fee = room_fee;
     }
 
-    public boolean isIs_empty() {
-        return is_empty;
-    }
-
-    public void setIs_empty(boolean is_empty) {
-        this.is_empty = is_empty;
+    public void getRoom_fee(String text) {
     }
 }

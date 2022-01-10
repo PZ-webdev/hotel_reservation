@@ -6,10 +6,10 @@ import com.project.Models.Room;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -44,8 +44,10 @@ public class RoomController implements Initializable, IMenu {
         roomCapacity.setCellValueFactory(new PropertyValueFactory<>("room_capacity"));
         roomType.setCellValueFactory(new PropertyValueFactory<>("room_type"));
         fee.setCellValueFactory(new PropertyValueFactory<>("room_fee"));
-        roomType.setCellFactory(TextFieldTableCell.forTableColumn());
 
+        roomType.setCellFactory(TextFieldTableCell.forTableColumn());
+        roomCapacity.setCellFactory(TextFieldTableCell.forTableColumn());
+        
         tableView.setItems(getRoomsList());
     }
     private ObservableList<Room> getRoomsList() {
@@ -68,6 +70,17 @@ public class RoomController implements Initializable, IMenu {
     public void changeNameCell(TableColumn.CellEditEvent<Room, String> editEvent) {
         Room selectedRoom = tableView.getSelectionModel().getSelectedItem();
         selectedRoom.setRoom_type(editEvent.getNewValue().toString());
+        roomDAO.updateRoom(selectedRoom);
+    }
+    public void changeRoomCapacityCell(TableColumn.CellEditEvent<Room, String> editEvent) {
+        Room selectedRoom = tableView.getSelectionModel().getSelectedItem();
+        selectedRoom.setRoom_capacity(editEvent.getNewValue().toString());
+        roomDAO.updateRoom(selectedRoom);
+    }
+
+    public void changeRoomFeeCell(TableColumn.CellEditEvent<Room, String> editEvent) {
+        Room selectedRoom = tableView.getSelectionModel().getSelectedItem();
+        selectedRoom.setRoom_fee(Double.parseDouble(editEvent.getNewValue().toString()));
         roomDAO.updateRoom(selectedRoom);
     }
 

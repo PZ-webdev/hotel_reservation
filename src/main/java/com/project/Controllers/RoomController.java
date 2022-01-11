@@ -47,7 +47,7 @@ public class RoomController implements Initializable, IMenu {
 
         roomType.setCellFactory(TextFieldTableCell.forTableColumn());
         roomCapacity.setCellFactory(TextFieldTableCell.forTableColumn());
-        
+
         tableView.setItems(getRoomsList());
     }
     private ObservableList<Room> getRoomsList() {

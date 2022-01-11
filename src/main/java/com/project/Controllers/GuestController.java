@@ -4,6 +4,7 @@ import com.project.DAO.GuestDAO;
 import com.project.Helpers.IMenu;
 import com.project.Models.Guest;
 import com.project.Models.Room;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -29,7 +30,7 @@ public class GuestController  implements Initializable, IMenu {
     public TableColumn<Guest, String> name;
     public TableColumn<Guest, Date> date_start;
     public TableColumn<Guest, Date> date_end;
-    public TableColumn<Guest, Room> roomType;
+    public TableColumn<Room, String> roomType;
 
     public GuestController() {
        //
@@ -47,7 +48,8 @@ public class GuestController  implements Initializable, IMenu {
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
         date_start.setCellValueFactory(new PropertyValueFactory<>("date_start"));
         date_end.setCellValueFactory(new PropertyValueFactory<>("date_end"));
-//        roomType.setCellValueFactory(new PropertyValueFactory<>("roomID"));
+        roomType.setCellValueFactory(new PropertyValueFactory<Room, String>("roomID"));
+//        roomType.setCellValueFactory(cd -> new SimpleStringProperty((Room)cd.getValue().getRoom_type()));
 //        roomType.setCellValueFactory(new Callback<CellDataFeatures<Room, String>, ObservableValue<String>>() {
 //            public ObservableValue<String> call(CellDataFeatures<Room, String> p) {
 //                // p.getValue() returns the Person instance for a particular TableView row

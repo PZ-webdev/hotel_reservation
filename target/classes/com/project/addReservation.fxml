@@ -56,7 +56,7 @@
                   <Label layoutX="40.0" layoutY="323.0" prefHeight="25.0" prefWidth="198.0" text="Zaliczka" />
                   <TextField fx:id="fee" layoutX="300.0" layoutY="323.0" prefHeight="25.0" prefWidth="216.0" />
                   <Button layoutX="466.0" layoutY="466.0" mnemonicParsing="false" text="Zapisz" onAction="#saveNewGuestToDb"/>
-                  <Button layoutX="389.0" layoutY="467.0" mnemonicParsing="false" text="Wyczyść" />
+                  <Button layoutX="389.0" layoutY="467.0" mnemonicParsing="false" text="Wyczyść" onAction="#clear"/>
                   <Label fx:id="textValidLabel" layoutX="300.0" layoutY="365.0" prefHeight="17.0" prefWidth="216.0" textFill="RED" />
                     </children>
                 </Pane>

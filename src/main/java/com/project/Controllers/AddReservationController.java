@@ -20,6 +20,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static java.lang.Integer.parseInt;
+
 public class AddReservationController implements Initializable, IMenu {
     RoomDAO roomDAO = new RoomDAO();
     ObservableList<Room> roomsObList = FXCollections.observableArrayList();
@@ -83,6 +85,10 @@ public class AddReservationController implements Initializable, IMenu {
         }
         if (fee.getText().equals("")) {
             textValidLabel.setText("Podaj zaliczkę");
+            return false;
+        }
+        if (parseInt(fee.getText()) < 0) {
+            textValidLabel.setText("Zaliczka musi być większa od zera!");
             return false;
         }
         return true;

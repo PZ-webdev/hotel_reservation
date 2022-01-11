@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
@@ -18,11 +17,11 @@
             <children>
                 <Pane prefHeight="122.0" prefWidth="266.0">
                     <children>
-                        <Text fill="WHITE" layoutX="-3.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hotel Reservation" textAlignment="CENTER" wrappingWidth="255.1539306640625">
-                            <font>
-                                <Font size="30.0" />
-                            </font>
-                        </Text>
+                        <ImageView fitHeight="122.0" fitWidth="250.0" layoutX="66.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@images/logo.png" />
+                            </image>
+                        </ImageView>
                     </children>
                 </Pane>
                 <Button fx:id="home_button" mnemonicParsing="false" prefHeight="70.0" prefWidth="266.0" text="Start" onAction="#showHomeScreen"/>

@@ -6,6 +6,8 @@ import com.project.Helpers.IMenu;
 import com.project.Models.Guest;
 import com.project.Models.Room;
 import javafx.animation.PauseTransition;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,7 +17,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.util.Duration;
-
+import java.util.Date;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -38,6 +40,7 @@ public class AddReservationController implements Initializable, IMenu {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
       roomSelect.setItems(getRoomObList());
+      regex();
     }
 
     private ObservableList<Room> getRoomObList() {
@@ -57,6 +60,7 @@ public class AddReservationController implements Initializable, IMenu {
             }
         }
     }
+
     private boolean validateInputs() {
 
         if (dateStart.getValue() == null) {
@@ -66,6 +70,10 @@ public class AddReservationController implements Initializable, IMenu {
 
         if(dateEnd.getValue() == null) {
             textValidLabel.setText("Zaznacz datę końcową rezerwacji!");
+            return false;
+        }
+        if(!dateEnd.getValue().isAfter(dateStart.getValue())) {
+            textValidLabel.setText("Data Zakończenia musi być poźniejsza niż rozpoczęcia");
             return false;
         }
 
@@ -94,7 +102,6 @@ public class AddReservationController implements Initializable, IMenu {
         return true;
     }
 
-
     private Guest createGuestFromInput() {
         Guest guest = new Guest();
         guest.setDate_end(dateEnd.getValue());
@@ -116,6 +123,47 @@ public class AddReservationController implements Initializable, IMenu {
             }
         });
         delay.play();
+    }
+
+    public void clear(){
+        dateStart.getEditor().clear();
+        dateEnd.getEditor().clear();
+        name.clear();
+        email.clear();
+        phone.clear();
+        fee.clear();
+    }
+
+    private void regex(){
+        name.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\D*")) {
+                    name.setText(newValue.replaceAll("[^\\D]", ""));
+                }
+            }
+        });
+
+        phone.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    phone.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+            }
+        });
+
+        fee.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    fee.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+            }
+        });
     }
 
     @Override

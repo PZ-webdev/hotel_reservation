@@ -1,15 +1,9 @@
 package com.project.Controllers;
 
-import com.project.DAO.SingletonConnection;
 import com.project.Helpers.IMenu;
-import com.project.Models.User;
 import javafx.event.ActionEvent;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 
-import javax.persistence.criteria.CriteriaQuery;
 import java.io.IOException;
-import java.util.List;
 
 public class UserController implements IMenu {
     public UserController() {

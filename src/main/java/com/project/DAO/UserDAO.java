@@ -8,7 +8,7 @@ import javax.persistence.TypedQuery;
 
 public class UserDAO {
     public static User getConnectedUser(String userName, String password) {
-        try (Session session = SingletonConnection.getSessionFactory().openSession()) {
+        try (Session session = HibernateConnection.getSessionFactory().openSession()) {
             TypedQuery<User> query = session.createQuery("SELECT u FROM User u WHERE login = :login AND password = :password", User.class );
             query.setParameter("login", userName);
             query.setParameter("password", password);

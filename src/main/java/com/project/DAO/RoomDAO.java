@@ -1,6 +1,5 @@
 package com.project.DAO;
 
-import com.project.Models.Guest;
 import com.project.Models.Room;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -10,10 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RoomDAO {
-    Session session = SingletonConnection.getSessionFactory().openSession();
+    Session session = HibernateConnection.getSessionFactory().openSession();
 
     public List<Room> getRooms() {
-        try (Session session = SingletonConnection.getSessionFactory().openSession()) {
+        try (Session session = HibernateConnection.getSessionFactory().openSession()) {
             System.out.println("");
             return session.createQuery("from Room", Room.class).list();
         } catch (Exception ex) {
@@ -24,7 +23,7 @@ public class RoomDAO {
 
     public void updateRoom(Room selectedRoom) {
         Transaction transaction = null;
-        try (Session session = SingletonConnection.getSessionFactory().openSession()) {
+        try (Session session = HibernateConnection.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
             session.update(selectedRoom);
             transaction.commit();
@@ -38,7 +37,7 @@ public class RoomDAO {
 
     public void delete(Room room) {
         Transaction transaction = null;
-        try (Session session = SingletonConnection.getSessionFactory().openSession()) {
+        try (Session session = HibernateConnection.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
             session.delete(room);
             transaction.commit();
@@ -52,7 +51,7 @@ public class RoomDAO {
 
     public boolean create(Room room) {
         Transaction transaction = null;
-        try (Session session = SingletonConnection.getSessionFactory().openSession()) {
+        try (Session session = HibernateConnection.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
             session.saveOrUpdate(room);
             transaction.commit();

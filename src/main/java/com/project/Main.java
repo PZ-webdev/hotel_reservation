@@ -2,13 +2,9 @@ package com.project;
 
 import com.project.Controllers.HibernateController;
 import com.project.Controllers.SceneController;
-import com.project.DAO.SingletonConnection;
+import com.project.DAO.HibernateConnection;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import org.hibernate.Session;
 
 public class Main extends Application {
@@ -19,7 +15,7 @@ public class Main extends Application {
 
     @Override
     public void init() throws Exception {
-        Session session = SingletonConnection.getSessionFactory().openSession();
+        Session session = HibernateConnection.getSessionFactory().openSession();
         new HibernateController().addDataToDatabase();
         session.close();
     }
@@ -32,6 +28,6 @@ public class Main extends Application {
     @Override
     public void stop() throws Exception {
         super.stop();
-        SingletonConnection.getSessionFactory().close();
+        HibernateConnection.getSessionFactory().close();
     }
 }

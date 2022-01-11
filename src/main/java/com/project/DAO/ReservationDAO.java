@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReservationDAO {
-    Session session = SingletonConnection.getSessionFactory().openSession();
+    Session session = HibernateConnection.getSessionFactory().openSession();
 
     public List<Guest> getGuests() {
-        try (Session session = SingletonConnection.getSessionFactory().openSession()) {
+        try (Session session = HibernateConnection.getSessionFactory().openSession()) {
             System.out.println("");
             return session.createQuery("from Guest", Guest.class).list();
         } catch (Exception ex) {

@@ -3,10 +3,10 @@ package com.project.DAO;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class SingletonConnection {
+public class HibernateConnection {
     private static SessionFactory sessionFactory;
 
-    public SingletonConnection() {
+    public HibernateConnection() {
     }
 
     public static synchronized SessionFactory getSessionFactory() {

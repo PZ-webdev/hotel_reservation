@@ -1,6 +1,6 @@
 package com.project.Controllers;
 
-import com.project.DAO.SingletonConnection;
+import com.project.DAO.HibernateConnection;
 import com.project.Models.Guest;
 import com.project.Models.Room;
 import com.project.Models.User;
@@ -9,16 +9,14 @@ import org.hibernate.SessionFactory;
 
 import javax.persistence.criteria.CriteriaQuery;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 public class HibernateController {
     public HibernateController() {}
 
    public void addDataToDatabase() throws ParseException {
-       SessionFactory sessionFactory = SingletonConnection.getSessionFactory();
+       SessionFactory sessionFactory = HibernateConnection.getSessionFactory();
        /*
         * ROOM MODEL
         */

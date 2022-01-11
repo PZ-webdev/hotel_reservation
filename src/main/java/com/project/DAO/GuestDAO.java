@@ -11,10 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GuestDAO {
-    Session session = SingletonConnection.getSessionFactory().openSession();
+    Session session = HibernateConnection.getSessionFactory().openSession();
 
     public List<Guest> getGuests() { // TODO: Add relation query
-        try (Session session = SingletonConnection.getSessionFactory().openSession()) {
+        try (Session session = HibernateConnection.getSessionFactory().openSession()) {
             Query<Guest> query = session.createQuery("SELECT c FROM Guest c WHERE date_end >= :now", Guest.class);
             query.setParameter("now", LocalDate.now());
             return query.getResultList();
@@ -26,7 +26,7 @@ public class GuestDAO {
 
     public boolean create(Guest guest) {
         Transaction transaction = null;
-        try (Session session = SingletonConnection.getSessionFactory().openSession()) {
+        try (Session session = HibernateConnection.getSessionFactory().openSession()) {
             transaction = session.beginTransaction();
             session.saveOrUpdate(guest);
             transaction.commit();

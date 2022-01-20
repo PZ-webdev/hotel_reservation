@@ -49,6 +49,7 @@ public class GuestController  implements Initializable, IMenu {
         date_start.setCellValueFactory(new PropertyValueFactory<>("date_start"));
         date_end.setCellValueFactory(new PropertyValueFactory<>("date_end"));
         roomType.setCellValueFactory(new PropertyValueFactory<Room, String>("roomID"));
+        System.out.println(guestsObList.get(0).getRoomID().getRoom_type());
 //        roomType.setCellValueFactory(cd -> new SimpleStringProperty((Room)cd.getValue().getRoom_type()));
 //        roomType.setCellValueFactory(new Callback<CellDataFeatures<Room, String>, ObservableValue<String>>() {
 //            public ObservableValue<String> call(CellDataFeatures<Room, String> p) {

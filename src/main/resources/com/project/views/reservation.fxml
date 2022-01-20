@@ -47,7 +47,7 @@
                                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                             </columnResizePolicy>
                         </TableView>
-                        <Button fx:id="showAddReservationButton" layoutX="450.0" layoutY="20.0" mnemonicParsing="false" text="Dodaj Rezerwację" onAction="#showAddReservation" />
+                        <Button fx:id="showAddReservationButton" layoutX="450.0" layoutY="20.0" mnemonicParsing="false" styleClass="addbutton" text="Dodaj Rezerwację" onAction="#showAddReservation" />
                         <Text layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rezerwacja" textAlignment="CENTER" wrappingWidth="600.0">
                             <font>
                                 <Font name="System Bold" size="18.0" />

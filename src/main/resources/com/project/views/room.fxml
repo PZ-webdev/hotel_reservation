@@ -38,7 +38,7 @@
                <children>
                   <TableView fx:id="tableView" layoutX="-14.0" layoutY="59.0" prefHeight="436.0" prefWidth="615.0">
                     <columns>
-                      <TableColumn fx:id="idColumn" prefWidth="25.0" text="ID" />
+                      <TableColumn fx:id="idColumn" maxWidth="1000.0" prefWidth="65.5999755859375" text="ID" />
                         <TableColumn fx:id="roomType" onEditCommit="#changeNameCell" prefWidth="100.0" text="Rodzaj" />
                         <TableColumn fx:id="roomCapacity" onEditCommit="#changeRoomCapacityCell" prefWidth="100.0" text="Wielkość" />
                         <TableColumn fx:id="fee" onEditCommit="#changeRoomFeeCell" prefWidth="75.0" text="Cena" />

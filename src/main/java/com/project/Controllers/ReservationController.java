@@ -67,6 +67,15 @@ public class ReservationController implements Initializable, IMenu {
         reservationDAO.update(selectedGuest);
     }
 
+    public void deleteReservation(ActionEvent event) throws Exception {
+        ObservableList<Guest> selectedRows = tableView.getSelectionModel().getSelectedItems();
+        for (Guest guest : selectedRows) {
+            System.out.println(guest.getGuestID());
+            reservationDAO.delete(guest);
+        }
+        showReservationScreen(event);
+    }
+
     @Override
     public void showHomeScreen(ActionEvent event) throws IOException {
         SceneController.getHomeScene(event);

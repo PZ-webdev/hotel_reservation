@@ -36,10 +36,10 @@
             <children>
                 <Pane prefHeight="550.0" prefWidth="615.0">
                     <children>
-                        <TableView fx:id="tableView" layoutX="-14.0" layoutY="59.0" prefHeight="490.0" prefWidth="615.0">
+                        <TableView fx:id="tableView" layoutX="-14.0" layoutY="59.0" prefHeight="436.0" prefWidth="615.0">
                             <columns>
                                 <TableColumn fx:id="idColumn" maxWidth="1000.0" prefWidth="65.5999755859375" text="ID" />
-                                <TableColumn fx:id="name" prefWidth="157.60003662109375" text="Imię i Nazwisko" />
+                                <TableColumn fx:id="name" onEditCommit="#changeNameCell" prefWidth="157.60003662109375" text="Imię i Nazwisko" />
                                 <TableColumn fx:id="date_start" prefWidth="159.199951171875" text="Data Rozpoczęcia" />
                                 <TableColumn fx:id="date_end" prefWidth="100.0" text="Data Zakończenia" />
                             </columns>
@@ -53,6 +53,8 @@
                                 <Font name="System Bold" size="18.0" />
                             </font>
                         </Text>
+                        <Button fx:id="deleteButton" layoutX="494.0" layoutY="504.0" mnemonicParsing="false" onAction="#deleteReservation" prefHeight="30.0" prefWidth="78.0" styleClass="deletebutton" text="Usuń" />
+
                     </children>
                 </Pane>
             </children>

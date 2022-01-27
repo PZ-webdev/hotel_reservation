@@ -24,11 +24,9 @@
                   </ImageView>
                </children>
             </Pane>
-             <Button fx:id="home_button" mnemonicParsing="false" onAction="#showHomeScreen" prefHeight="70.0" prefWidth="266.0" text="Start" />
              <Button fx:id="guest_button" mnemonicParsing="false" onAction="#showGuestScreen" prefHeight="70.0" prefWidth="266.0" text="Obecni Goście" />
              <Button fx:id="reservation_button" mnemonicParsing="false" onAction="#showReservationScreen" prefHeight="70.0" prefWidth="266.0" text="Rezerwacje" />
              <Button fx:id="rooms_button" mnemonicParsing="false" onAction="#showRoomScreen" prefHeight="70.0" prefWidth="266.0" text="Pokoje" />
-             <Button fx:id="users_button" mnemonicParsing="false" onAction="#showUserScreen" prefHeight="70.0" prefWidth="266.0" text="Użytkownicy" />
              <Button fx:id="close_button" mnemonicParsing="false" onAction="#close" prefHeight="70.0" prefWidth="266.0" text="Zamknij" />
          </children>
       </VBox>

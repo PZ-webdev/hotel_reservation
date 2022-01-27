@@ -1,7 +1,6 @@
 package com.project.DAO;
 
 import com.project.Models.Guest;
-import com.project.Models.Room;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 

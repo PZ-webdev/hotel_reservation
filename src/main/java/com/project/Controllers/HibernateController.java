@@ -6,7 +6,6 @@ import com.project.Models.Room;
 import com.project.Models.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-
 import javax.persistence.criteria.CriteriaQuery;
 import java.text.ParseException;
 import java.time.LocalDate;

@@ -7,6 +7,10 @@ import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
 public class UserDAO {
+
+    /**
+     *  Pobranie użytkownika któray się loguje do aplikacji  z użyciem Hibernate'a
+     * */
     public static User getConnectedUser(String userName, String password) {
         try (Session session = HibernateConnection.getSessionFactory().openSession()) {
             TypedQuery<User> query = session.createQuery("SELECT u FROM User u WHERE login = :login AND password = :password", User.class );

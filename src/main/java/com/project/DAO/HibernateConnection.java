@@ -8,7 +8,9 @@ public class HibernateConnection {
 
     public HibernateConnection() {
     }
-
+    /**
+     * Utworzenie połączanie Hibernate
+     * */
     public static synchronized SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
             sessionFactory = new Configuration()

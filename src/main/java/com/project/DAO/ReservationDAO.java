@@ -11,6 +11,9 @@ import java.util.List;
 public class ReservationDAO {
     Session session = HibernateConnection.getSessionFactory().openSession();
 
+    /**
+     *  Pobranie listy gości z bazdy danych z użyciem Hibernate'a
+    * */
     public List<Guest> getGuests() {
         try (Session session = HibernateConnection.getSessionFactory().openSession()) {
             System.out.println("");
@@ -21,6 +24,9 @@ public class ReservationDAO {
         }
     }
 
+    /**
+     *  Edycja gości z bazdy danych z użyciem Hibernate'a
+     * */
     public void update(Guest selectedGuest) {
         Transaction transaction = null;
         try (Session session = HibernateConnection.getSessionFactory().openSession()) {
@@ -35,6 +41,9 @@ public class ReservationDAO {
         }
     }
 
+    /**
+     *  Usuwanie  gości z bazdy danych z użyciem Hibernate'a
+     * */
     public void delete(Guest guest) {
         Transaction transaction = null;
         try (Session session = HibernateConnection.getSessionFactory().openSession()) {

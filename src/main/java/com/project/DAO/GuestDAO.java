@@ -17,6 +17,7 @@ public class GuestDAO {
         try (Session session = HibernateConnection.getSessionFactory().openSession()) {
             Query<Guest> query = session.createQuery("SELECT c FROM Guest c WHERE date_end >= :now", Guest.class);
             query.setParameter("now", LocalDate.now());
+            System.out.println(query.getResultList().get(0).getRoomID().getRoom_type());
             return query.getResultList();
         } catch (Exception ex) {
             ex.printStackTrace();

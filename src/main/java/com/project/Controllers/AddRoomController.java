@@ -106,10 +106,6 @@ public class AddRoomController implements Initializable, IMenu {
         delay.play();
     }
 
-    @Override
-    public void showHomeScreen(ActionEvent event) throws IOException {
-        SceneController.getHomeScene(event);
-    }
 
     @Override
     public void showLoginScreen(ActionEvent event) throws IOException {
@@ -124,11 +120,6 @@ public class AddRoomController implements Initializable, IMenu {
     @Override
     public void showGuestScreen(ActionEvent event) throws IOException {
         SceneController.getGuestScene(event);
-    }
-
-    @Override
-    public void showUserScreen(ActionEvent event) throws IOException {
-        SceneController.getUserScene(event);
     }
 
     @Override

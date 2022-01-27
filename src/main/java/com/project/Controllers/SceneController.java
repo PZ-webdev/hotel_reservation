@@ -31,9 +31,6 @@ public class SceneController {
         stage.show();
     }
 
-    public static void getHomeScene(ActionEvent event) throws IOException {
-        changeScreen(event, ScenePath.HOME.getPath());
-    }
     public static void getLoginScene(ActionEvent event) throws IOException {
         changeScreen(event, ScenePath.LOGIN.getPath());
     }
@@ -42,9 +39,6 @@ public class SceneController {
     }
     public static void getGuestScene(ActionEvent event) throws IOException {
         changeScreen(event, ScenePath.GUEST.getPath());
-    }
-    public static void getUserScene(ActionEvent event) throws IOException {
-        changeScreen(event, ScenePath.USERS.getPath());
     }
     public static void getReservationScene(ActionEvent event) throws IOException {
         changeScreen(event, ScenePath.RESERVATION.getPath());

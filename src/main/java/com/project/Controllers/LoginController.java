@@ -38,11 +38,16 @@ public class LoginController implements Initializable {
     public Button loginButton;
     public Label validLabel;
 
+    /**
+     *  Metoda odpowiadająca za zainiciajlizowanie metod podczas aktywnego widoku *
+     */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         //
     }
-
+    /**
+     *  Główna metoda odpowiadająca za logowanie do systemu.     *
+     */
     @FXML
     public void loginAction(Event event){
         String user = login.getText();
@@ -80,6 +85,9 @@ public class LoginController implements Initializable {
 
     }
 
+    /**
+     *  Walidacja próby logowania *
+     */
     private boolean validateLogin() {
         User user = UserDAO.getConnectedUser(login.getText(), passwordField.getText());
         if (user == null) {
@@ -89,11 +97,16 @@ public class LoginController implements Initializable {
         System.out.println("Zalogowano");
         return true;
     }
-
+    /**
+     *  Walidacja pól login i hasło, czy nie są puste.    *
+     */
     boolean validFields() {
         return !login.getText().isEmpty() && !passwordField.getText().isEmpty();
     }
 
+    /**
+     *  Metoda zamknięcia aplikacji.     *
+     */
     public void close(ActionEvent event) throws IOException {
         SceneController.close(event);
     }

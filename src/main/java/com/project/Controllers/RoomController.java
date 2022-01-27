@@ -32,6 +32,9 @@ public class RoomController implements Initializable, IMenu {
 
     public RoomController() {}
 
+    /**
+     *  Metoda inicjalizuje dodanie listy to tabeli, oraz dodanie możliwość edycji w tabeli
+     * */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setObList();
@@ -39,6 +42,9 @@ public class RoomController implements Initializable, IMenu {
         addTableSettings();
     }
 
+    /**
+     *  Dodanie danych do kolumn w tabeli
+     * */
     public void fillTable() {
         idColumn.setCellValueFactory(new PropertyValueFactory<>("roomID"));
         roomCapacity.setCellValueFactory(new PropertyValueFactory<>("room_capacity"));
@@ -50,41 +56,62 @@ public class RoomController implements Initializable, IMenu {
 
         tableView.setItems(getRoomsList());
     }
+
+    /**
+     *  Pobranie listy pokojów
+     * */
     private ObservableList<Room> getRoomsList() {
         ObservableList<Room> consults = FXCollections.observableArrayList();
         consults.addAll(roomDAO.getRooms());
         return consults;
     }
 
+    /**
+     *  Dodanie opcji edycji tabeli
+     * */
     private void addTableSettings() {
         tableView.setEditable(true);
         tableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
     }
 
+    /**
+     *  Wyczyszczenie listy, i pobranie listy pokojów
+     * */
     private void setObList() {
         roomsObList.clear();
         roomsObList.addAll(roomDAO.getRooms());
     }
 
-
+    /**
+     *  Zmiana nazwy w kolumnie
+     * */
     public void changeNameCell(TableColumn.CellEditEvent<Room, String> editEvent) {
         Room selectedRoom = tableView.getSelectionModel().getSelectedItem();
         selectedRoom.setRoom_type(editEvent.getNewValue().toString());
         roomDAO.updateRoom(selectedRoom);
     }
+
+    /**
+     *  Zmiana wielkości pokoju w kolumnie
+     * */
     public void changeRoomCapacityCell(TableColumn.CellEditEvent<Room, String> editEvent) {
         Room selectedRoom = tableView.getSelectionModel().getSelectedItem();
         selectedRoom.setRoom_capacity(editEvent.getNewValue().toString());
         roomDAO.updateRoom(selectedRoom);
     }
 
+    /**
+     *  Zmiana ceny pokoju w kolumnie
+     * */
     public void changeRoomFeeCell(TableColumn.CellEditEvent<Room, String> editEvent) {
         Room selectedRoom = tableView.getSelectionModel().getSelectedItem();
         selectedRoom.setRoom_fee(Double.parseDouble(editEvent.getNewValue().toString()));
         roomDAO.updateRoom(selectedRoom);
     }
 
-
+    /**
+     *  Usuwanie zaznaczonego pokoju
+     * */
     public void deleteRooms(ActionEvent event) throws Exception {
         ObservableList<Room> selectedRows = tableView.getSelectionModel().getSelectedItems();
         for (Room room : selectedRows) {
@@ -94,6 +121,9 @@ public class RoomController implements Initializable, IMenu {
         showRoomScreen(event);
     }
 
+    /**
+     *  Przesłonięte metody do zmiany scen
+     * */
     @Override
     public void showLoginScreen(ActionEvent event) throws IOException {
         SceneController.getLoginScene(event);

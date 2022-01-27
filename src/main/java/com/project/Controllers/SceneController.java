@@ -21,6 +21,9 @@ public class SceneController {
 
     private static Parent main;
 
+    /**
+    *  Inicjalizacja aplikacji oraz głównego widoku, jakim jest logowanie do systemu.
+    * */
     public static void getInitialScene(Stage stage) throws IOException {
         main = FXMLLoader.load((Main.class.getResource(ScenePath.LOGIN.getPath())));
         Scene scene = new Scene(main);
@@ -30,27 +33,51 @@ public class SceneController {
         stage.setScene(scene);
         stage.show();
     }
-
+    /**
+     *  Metoda ta zwraca widok logowania
+     * */
     public static void getLoginScene(ActionEvent event) throws IOException {
         changeScreen(event, ScenePath.LOGIN.getPath());
     }
+
+    /**
+     *  Metoda ta zwraca widok Pokoju
+     * */
     public static void getRoomScene(ActionEvent event) throws IOException {
         changeScreen(event, ScenePath.ROOM.getPath());
     }
+
+    /**
+     *  Metoda ta zwraca widok Gości
+     * */
     public static void getGuestScene(ActionEvent event) throws IOException {
         changeScreen(event, ScenePath.GUEST.getPath());
     }
+
+    /**
+     *  Metoda ta zwraca widok Rezerwacji
+     * */
     public static void getReservationScene(ActionEvent event) throws IOException {
         changeScreen(event, ScenePath.RESERVATION.getPath());
     }
+
+    /**
+     *  Metoda ta zwraca widok Dodawania Rezerwacji
+     * */
     public static void getAddReservationScene(ActionEvent event) throws IOException {
         changeScreen(event, ScenePath.ADD_RESERVATION.getPath());
     }
+
+    /**
+     *  Metoda ta zwraca widok Dodawania Pokoju
+     * */
     public static void getAddRoomScene(ActionEvent event) throws IOException {
         changeScreen(event, ScenePath.ADD_ROOM.getPath());
     }
 
-
+    /**
+     *  Metoda ta zwraca widok logowania
+     * */
     private static void changeScreen(ActionEvent event, String path) throws IOException {
         main = FXMLLoader.load(Main.class.getResource(path));
         Scene visitScene = new Scene(main);
@@ -60,6 +87,9 @@ public class SceneController {
         window.show();
     }
 
+    /**
+     *  Metoda odpowiadająca za swobodne przesuwanie okna aplikacji z użyciem myszki.
+     * */
     public static void controlDrag(Stage stage) {
         main.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
@@ -77,6 +107,9 @@ public class SceneController {
         });
     }
 
+    /**
+     *  Zamknięcie aplikacji.
+     * */
     public static void close(ActionEvent actionEvent) {
         Node  source = (Node)  actionEvent.getSource();
         Stage stage  = (Stage) source.getScene().getWindow();

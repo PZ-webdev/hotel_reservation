@@ -27,12 +27,18 @@ public class AddRoomController implements Initializable, IMenu {
     public ComboBox roomType;
     public Label textValidLabel;
 
+    /**
+     *  Metoda inicjalizuje listę wielkości pokoju oraz jego rodzaj
+     * */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initRoomCapacitySelectList();
         initRoomTypeSelectList();
     }
 
+    /**
+     *  Metoda dodająca rodzaj pokoju do listy
+     * */
     private void initRoomTypeSelectList() {
         List<String> list = new ArrayList<String>();
         list.add("Normal");
@@ -44,6 +50,9 @@ public class AddRoomController implements Initializable, IMenu {
         roomType.setItems(obList);
     }
 
+    /**
+     *  Metoda dodająca wielkość pokoju do listy
+     * */
     private void initRoomCapacitySelectList() {
         List<String> list = new ArrayList<String>();
         list.add("Single");
@@ -54,6 +63,9 @@ public class AddRoomController implements Initializable, IMenu {
         roomCapacity.setItems(obList);
     }
 
+    /**
+     *  Metoda wywołująca metode do zapisania nowo utworzonego pokoju do bazy danych
+     * */
     public void saveNewRoomToDb(ActionEvent event) throws IOException {
         if(validateInputs()) {
         Room room = createRoomFromInput();
@@ -66,6 +78,9 @@ public class AddRoomController implements Initializable, IMenu {
         }
     }
 
+    /**
+     *  Walidacja dodawanego pokoju
+     * */
     private boolean validateInputs() {
         if (roomCapacity.getValue() == null) {
             textValidLabel.setText("Wybierz Wielkość pokoju!");
@@ -86,6 +101,9 @@ public class AddRoomController implements Initializable, IMenu {
         return true;
     }
 
+    /**
+     *  Zapisywanie do bazy danych nowo utworzonego pokoju
+     * */
     private Room createRoomFromInput() {
         Room room = new Room();
         room.setRoom_fee(Double.parseDouble(roomFee.getText()));
@@ -94,6 +112,9 @@ public class AddRoomController implements Initializable, IMenu {
         return room;
     }
 
+    /**
+     *  Opoźnienie 2s po poprawnym dodaniu pokoju
+     * */
     private void delayWindowClose(ActionEvent event) {
         PauseTransition delay = new PauseTransition(Duration.seconds(2));
         delay.setOnFinished(event2 -> {
@@ -106,7 +127,9 @@ public class AddRoomController implements Initializable, IMenu {
         delay.play();
     }
 
-
+    /**
+     *  Przesłonięte metody do zmiany scen
+     * */
     @Override
     public void showLoginScreen(ActionEvent event) throws IOException {
         SceneController.getLoginScene(event);

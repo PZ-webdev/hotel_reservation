@@ -15,6 +15,9 @@ import java.util.List;
 public class HibernateController {
     public HibernateController() {}
 
+    /**
+     *  Metoda wywołuje sessie Hibernat'a i dodaje dane do bazy danych.
+     * */
    public void addDataToDatabase() throws ParseException {
        SessionFactory sessionFactory = HibernateConnection.getSessionFactory();
        /*

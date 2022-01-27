@@ -36,19 +36,27 @@ public class AddReservationController implements Initializable, IMenu {
     public TextField fee;
     public Label textValidLabel;
 
-
+    /**
+     *  Metoda inicjalizuje listę pokoju, oraz reguły ( walidacje) dodawania nowej rezerwacji
+     * */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
       roomSelect.setItems(getRoomObList());
       regex();
     }
 
+    /**
+     *  Pobranie listy wszystkich pokojów
+     * */
     private ObservableList<Room> getRoomObList() {
         ObservableList<Room> list = FXCollections.observableArrayList();
         list.addAll(roomDAO.getRooms());
         return list;
     }
 
+    /**
+     *  Metoda wywołująca metode do zapisania nowo utworzonej rezerwacji  do bazy danych
+     * */
     public void saveNewGuestToDb(ActionEvent event) throws IOException {
         if(validateInputs()) {
             Guest guest = createGuestFromInput();
@@ -61,6 +69,9 @@ public class AddReservationController implements Initializable, IMenu {
         }
     }
 
+    /**
+     *  Walidacja dodawaneej rezerwacji
+     * */
     private boolean validateInputs() {
 
         if (dateStart.getValue() == null) {
@@ -102,6 +113,9 @@ public class AddReservationController implements Initializable, IMenu {
         return true;
     }
 
+    /**
+     *  Zapisywanie do bazy danych nowo utworzonej rezerwacji
+     * */
     private Guest createGuestFromInput() {
         Guest guest = new Guest();
         guest.setDate_end(dateEnd.getValue());
@@ -113,6 +127,9 @@ public class AddReservationController implements Initializable, IMenu {
         return guest;
     }
 
+    /**
+     *  Opoźnienie 2s po poprawnym dodaniu pokoju
+     * */
     private void delayWindowClose(ActionEvent event) {
         PauseTransition delay = new PauseTransition(Duration.seconds(2));
         delay.setOnFinished(event2 -> {
@@ -125,6 +142,9 @@ public class AddReservationController implements Initializable, IMenu {
         delay.play();
     }
 
+    /**
+     *  Metoda czyszcząca formularz
+     * */
     public void clear(){
         dateStart.getEditor().clear();
         dateEnd.getEditor().clear();
@@ -134,6 +154,11 @@ public class AddReservationController implements Initializable, IMenu {
         fee.clear();
     }
 
+    /**
+     *  Regex - Metoda zapobiegająca wpisywanie liczb w pole 'imie i nazwisko',
+     *                                       &&  liter w pole 'telefon'
+     *                                       &&  liter w pole 'cena'
+     * */
     private void regex(){
         name.textProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -166,6 +191,9 @@ public class AddReservationController implements Initializable, IMenu {
         });
     }
 
+    /**
+     *  Przesłonięte metody do zmiany scen
+     * */
     @Override
     public void showLoginScreen(ActionEvent event) throws IOException {
         SceneController.getLoginScene(event);

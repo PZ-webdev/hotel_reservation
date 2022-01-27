@@ -5,6 +5,10 @@ import javafx.event.ActionEvent;
 import java.io.IOException;
 
 public interface IMenu {
+
+    /**
+     *  Metoy odpowiedzialne za zmiane scen.
+     * */
     void showLoginScreen(ActionEvent event) throws IOException;
     void showRoomScreen(ActionEvent event) throws IOException;
     void showGuestScreen(ActionEvent event) throws IOException;

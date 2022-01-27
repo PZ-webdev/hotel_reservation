@@ -1,6 +1,10 @@
 package com.project.Helpers;
 
 public enum ScenePath {
+
+    /**
+     *  Wypisanie wszystkich widoków, które są używane w aplikacji
+     * */
     LOGIN("views/login.fxml"),
     ROOM("views/room.fxml"),
     GUEST("views/guests.fxml"),

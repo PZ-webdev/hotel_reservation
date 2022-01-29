@@ -30,6 +30,9 @@ public class GuestDAO {
 
     /**
      *  Utworzenie gości z bazdy danych z użyciem Hibernate'a
+     *
+     * @param guest
+     * @return boolean, czy poprawnie dodano dane do bazy
      * */
     public boolean create(Guest guest) {
         Transaction transaction = null;

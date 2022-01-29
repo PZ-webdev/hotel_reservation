@@ -13,6 +13,8 @@ public class RoomDAO {
 
     /**
      *  Pobranie listy pokojów z bazdy danych z użyciem Hibernate'a
+     *
+     * @return  liste pokojów
      * */
     public List<Room> getRooms() {
         try (Session session = HibernateConnection.getSessionFactory().openSession()) {
@@ -26,6 +28,8 @@ public class RoomDAO {
 
     /**
      *  Edycja pokojów z bazdy danych z użyciem Hibernate'a
+     *
+     * @param selectedRoom
      * */
     public void updateRoom(Room selectedRoom) {
         Transaction transaction = null;
@@ -43,6 +47,8 @@ public class RoomDAO {
 
     /**
      *  Usuwanie pokoju z bazdy danych z użyciem Hibernate'a
+     *
+     * @param room
      * */
     public void delete(Room room) {
         Transaction transaction = null;
@@ -60,6 +66,9 @@ public class RoomDAO {
 
     /**
      *  Utowrzenie nowego pokoju z użyciem Hibernate'a
+     *
+     * @param room
+     * @return boolean, czy poprawnie dodano dane do bazy
      * */
     public boolean create(Room room) {
         Transaction transaction = null;

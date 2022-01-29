@@ -10,6 +10,10 @@ public class UserDAO {
 
     /**
      *  Pobranie użytkownika któray się loguje do aplikacji  z użyciem Hibernate'a
+     *
+     * @param userName login uzytkownika
+     * @param password hasło użytkownika
+     * @return sprawdzenie czy podany uzytkownik istnieje
      * */
     public static User getConnectedUser(String userName, String password) {
         try (Session session = HibernateConnection.getSessionFactory().openSession()) {

@@ -12,6 +12,8 @@ public class ReservationDAO {
 
     /**
      *  Pobranie listy gości z bazdy danych z użyciem Hibernate'a
+     *
+     * @return liste gosci
     * */
     public List<Guest> getGuests() {
         try (Session session = HibernateConnection.getSessionFactory().openSession()) {
@@ -25,6 +27,8 @@ public class ReservationDAO {
 
     /**
      *  Edycja gości z bazdy danych z użyciem Hibernate'a
+     *
+     * @param selectedGuest
      * */
     public void update(Guest selectedGuest) {
         Transaction transaction = null;
@@ -42,6 +46,8 @@ public class ReservationDAO {
 
     /**
      *  Usuwanie  gości z bazdy danych z użyciem Hibernate'a
+     *
+     * @param guest
      * */
     public void delete(Guest guest) {
         Transaction transaction = null;

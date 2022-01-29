@@ -55,11 +55,13 @@ public class ReservationController implements Initializable, IMenu {
 
     /**
      *  Pobranie listy gości
+     *
+     * @return listę gosci
      * */
     private ObservableList<Guest> getGuestsList() {
-        ObservableList<Guest> consults = FXCollections.observableArrayList();
-        consults.addAll(reservationDAO.getGuests());
-        return consults;
+        ObservableList<Guest> guests = FXCollections.observableArrayList();
+        guests.addAll(reservationDAO.getGuests());
+        return guests;
     }
 
     /**
@@ -80,6 +82,8 @@ public class ReservationController implements Initializable, IMenu {
 
     /**
      *  Zmiana nazwy w kolumnie
+     *
+     * @param editEvent
      * */
     public void changeNameCell(TableColumn.CellEditEvent<Guest, String> editEvent) {
         Guest selectedGuest = tableView.getSelectionModel().getSelectedItem();
@@ -89,6 +93,8 @@ public class ReservationController implements Initializable, IMenu {
 
     /**
      *  Usuwanie zaznaczonej rezerwacji
+     *
+     * @param event
      * */
     public void deleteReservation(ActionEvent event) throws Exception {
         ObservableList<Guest> selectedRows = tableView.getSelectionModel().getSelectedItems();

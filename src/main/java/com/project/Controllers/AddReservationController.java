@@ -46,6 +46,8 @@ public class AddReservationController implements Initializable, IMenu {
 
     /**
      *  Pobranie listy wszystkich pokojów
+     *
+     * @return lista wszystkich pokojów
      * */
     private ObservableList<Room> getRoomObList() {
         ObservableList<Room> list = FXCollections.observableArrayList();
@@ -55,6 +57,8 @@ public class AddReservationController implements Initializable, IMenu {
 
     /**
      *  Metoda wywołująca metode do zapisania nowo utworzonej rezerwacji  do bazy danych
+     *
+     * @param event
      * */
     public void saveNewGuestToDb(ActionEvent event) throws IOException {
         if(validateInputs()) {
@@ -128,6 +132,8 @@ public class AddReservationController implements Initializable, IMenu {
 
     /**
      *  Opoźnienie 2s po poprawnym dodaniu pokoju
+     *
+     * @param event
      * */
     private void delayWindowClose(ActionEvent event) {
         PauseTransition delay = new PauseTransition(Duration.seconds(2));

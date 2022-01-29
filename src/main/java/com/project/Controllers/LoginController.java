@@ -33,7 +33,8 @@ public class LoginController implements Initializable {
         //
     }
     /**
-     *  Główna metoda odpowiadająca za logowanie do systemu.     *
+     *  Główna metoda odpowiadająca za logowanie do systemu.
+     * @param event
      */
     @FXML
     public void loginAction(Event event){
@@ -74,6 +75,8 @@ public class LoginController implements Initializable {
 
     /**
      *  Walidacja próby logowania *
+     *
+     * @return (boolean) poprawne logowanie
      */
     private boolean validateLogin() {
         User user = UserDAO.getConnectedUser(login.getText(), passwordField.getText());
@@ -85,7 +88,9 @@ public class LoginController implements Initializable {
         return true;
     }
     /**
-     *  Walidacja pól login i hasło, czy nie są puste.    *
+     *  Walidacja pól login i hasło, czy nie są puste.
+     *
+     *  @return (boolean) czy pola nie są puste
      */
     boolean validFields() {
         return !login.getText().isEmpty() && !passwordField.getText().isEmpty();

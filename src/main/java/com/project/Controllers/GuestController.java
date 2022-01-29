@@ -53,11 +53,13 @@ public class GuestController  implements Initializable, IMenu {
 
     /**
      *  Pobranie listy gości
+     *
+     * @return  liste goście
      * */
     private ObservableList<Guest> getGuestsList() {
-        ObservableList<Guest> consults = FXCollections.observableArrayList();
-        consults.addAll(guestDAO.getGuests());
-        return consults;
+        ObservableList<Guest> guest = FXCollections.observableArrayList();
+        guest.addAll(guestDAO.getGuests());
+        return guest;
     }
 
     /**

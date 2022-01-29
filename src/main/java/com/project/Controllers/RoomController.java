@@ -57,11 +57,13 @@ public class RoomController implements Initializable, IMenu {
 
     /**
      *  Pobranie listy pokojów
+     *
+     * @return liste pokojów
      * */
     private ObservableList<Room> getRoomsList() {
-        ObservableList<Room> consults = FXCollections.observableArrayList();
-        consults.addAll(roomDAO.getRooms());
-        return consults;
+        ObservableList<Room> rooms = FXCollections.observableArrayList();
+        rooms.addAll(roomDAO.getRooms());
+        return rooms;
     }
 
     /**
@@ -82,6 +84,8 @@ public class RoomController implements Initializable, IMenu {
 
     /**
      *  Zmiana nazwy w kolumnie
+     *
+     * @param editEvent
      * */
     public void changeNameCell(TableColumn.CellEditEvent<Room, String> editEvent) {
         Room selectedRoom = tableView.getSelectionModel().getSelectedItem();
@@ -91,6 +95,8 @@ public class RoomController implements Initializable, IMenu {
 
     /**
      *  Zmiana wielkości pokoju w kolumnie
+     *
+     * @param editEvent
      * */
     public void changeRoomCapacityCell(TableColumn.CellEditEvent<Room, String> editEvent) {
         Room selectedRoom = tableView.getSelectionModel().getSelectedItem();
@@ -100,6 +106,8 @@ public class RoomController implements Initializable, IMenu {
 
     /**
      *  Zmiana ceny pokoju w kolumnie
+     *
+     * @param editEvent
      * */
     public void changeRoomFeeCell(TableColumn.CellEditEvent<Room, String> editEvent) {
         Room selectedRoom = tableView.getSelectionModel().getSelectedItem();
@@ -109,6 +117,8 @@ public class RoomController implements Initializable, IMenu {
 
     /**
      *  Usuwanie zaznaczonego pokoju
+     *
+     * @param event
      * */
     public void deleteRooms(ActionEvent event) throws Exception {
         ObservableList<Room> selectedRows = tableView.getSelectionModel().getSelectedItems();

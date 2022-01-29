@@ -103,6 +103,8 @@ public class AddRoomController implements Initializable, IMenu {
 
     /**
      *  Zapisywanie do bazy danych nowo utworzonego pokoju
+     *
+     * @return obiekt pokoju
      * */
     private Room createRoomFromInput() {
         Room room = new Room();

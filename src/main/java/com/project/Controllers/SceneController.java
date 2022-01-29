@@ -23,6 +23,8 @@ public class SceneController {
 
     /**
     *  Inicjalizacja aplikacji oraz głównego widoku, jakim jest logowanie do systemu.
+     *
+     * @param stage
     * */
     public static void getInitialScene(Stage stage) throws IOException {
         main = FXMLLoader.load((Main.class.getResource(ScenePath.LOGIN.getPath())));
@@ -35,6 +37,8 @@ public class SceneController {
     }
     /**
      *  Metoda ta zwraca widok logowania
+     *
+     * @param event
      * */
     public static void getLoginScene(ActionEvent event) throws IOException {
         changeScreen(event, ScenePath.LOGIN.getPath());
@@ -42,6 +46,8 @@ public class SceneController {
 
     /**
      *  Metoda ta zwraca widok Pokoju
+     *
+     *   @param event
      * */
     public static void getRoomScene(ActionEvent event) throws IOException {
         changeScreen(event, ScenePath.ROOM.getPath());
@@ -49,6 +55,8 @@ public class SceneController {
 
     /**
      *  Metoda ta zwraca widok Gości
+     *
+     *  @param event
      * */
     public static void getGuestScene(ActionEvent event) throws IOException {
         changeScreen(event, ScenePath.GUEST.getPath());
@@ -56,6 +64,8 @@ public class SceneController {
 
     /**
      *  Metoda ta zwraca widok Rezerwacji
+     *
+     *  @param event
      * */
     public static void getReservationScene(ActionEvent event) throws IOException {
         changeScreen(event, ScenePath.RESERVATION.getPath());
@@ -63,6 +73,8 @@ public class SceneController {
 
     /**
      *  Metoda ta zwraca widok Dodawania Rezerwacji
+     *
+     *  @param event
      * */
     public static void getAddReservationScene(ActionEvent event) throws IOException {
         changeScreen(event, ScenePath.ADD_RESERVATION.getPath());
@@ -70,6 +82,8 @@ public class SceneController {
 
     /**
      *  Metoda ta zwraca widok Dodawania Pokoju
+     *
+     *  @param event
      * */
     public static void getAddRoomScene(ActionEvent event) throws IOException {
         changeScreen(event, ScenePath.ADD_ROOM.getPath());
@@ -77,6 +91,9 @@ public class SceneController {
 
     /**
      *  Metoda ta zwraca widok logowania
+     *
+     * @param event
+     * @param path
      * */
     private static void changeScreen(ActionEvent event, String path) throws IOException {
         main = FXMLLoader.load(Main.class.getResource(path));
@@ -89,6 +106,8 @@ public class SceneController {
 
     /**
      *  Metoda odpowiadająca za swobodne przesuwanie okna aplikacji z użyciem myszki.
+     *
+     * @param stage
      * */
     public static void controlDrag(Stage stage) {
         main.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -109,6 +128,8 @@ public class SceneController {
 
     /**
      *  Zamknięcie aplikacji.
+     *
+     * @param actionEvent
      * */
     public static void close(ActionEvent actionEvent) {
         Node  source = (Node)  actionEvent.getSource();

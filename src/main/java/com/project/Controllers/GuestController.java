@@ -53,15 +53,6 @@ public class GuestController  implements Initializable, IMenu {
         date_end.setCellValueFactory(new PropertyValueFactory<>("date_end"));
         roomType.setCellValueFactory(new PropertyValueFactory<Room, String>("roomID"));
 
-//        roomType
-//                .setCellValueFactory((param) -> new SimpleObjectProperty<>(param.getValue().getRoom_type()));
-//        roomType.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Room, String>,
-//                        ObservableValue<String>>() {
-//            @Override
-//            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Room, String> data){
-////                return data.getValue();
-//            }
-//        });
         tableView.setItems(getGuestsList());
     }
 

@@ -8,12 +8,8 @@ import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.cell.TextFieldTableCell;
 
 import java.io.IOException;
 import java.net.URL;
@@ -28,6 +24,7 @@ public class ReservationController implements Initializable, IMenu {
     public TableColumn<Guest, Date> date_end;
     public TableColumn<Guest, Integer> numberOfDays;
     public TableColumn<Guest, Double> fees;
+    public TableColumn<Guest, Double> price;
     public TextField searchBar;
 
     ReservationDAO reservationDAO = new ReservationDAO();
@@ -51,7 +48,8 @@ public class ReservationController implements Initializable, IMenu {
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
         date_start.setCellValueFactory(new PropertyValueFactory<>("date_start"));
         date_end.setCellValueFactory(new PropertyValueFactory<>("date_end"));
-        name.setCellFactory(TextFieldTableCell.forTableColumn());
+        numberOfDays.setCellValueFactory(new PropertyValueFactory("days"));
+        price.setCellValueFactory(new PropertyValueFactory("priceReservation"));
 
         tableView.setItems(getGuestsList());
     }

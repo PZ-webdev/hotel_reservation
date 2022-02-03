@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 @Entity
 @Getter @Setter @NoArgsConstructor
@@ -41,4 +42,12 @@ public class Guest {
         this.date_end = date_end;
         this.fees = fees;
     }
+
+    public long getDays() {
+        return ChronoUnit.DAYS.between(date_start,date_end);
+    }
+
+   public double getPriceReservation(){
+        return getDays() *  roomID.getRoom_fee();
+   }
 }

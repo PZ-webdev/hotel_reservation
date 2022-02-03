@@ -51,4 +51,8 @@ public class Guest {
         double price = getDays() *  roomID.getRoom_fee();
         return price + " zł";
    }
+
+    public String getRoomType() {
+        return roomID.getRoom_type();
+    }
 }

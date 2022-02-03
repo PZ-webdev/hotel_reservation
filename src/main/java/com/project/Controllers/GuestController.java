@@ -51,7 +51,7 @@ public class GuestController  implements Initializable, IMenu {
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
         date_start.setCellValueFactory(new PropertyValueFactory<>("date_start"));
         date_end.setCellValueFactory(new PropertyValueFactory<>("date_end"));
-        roomType.setCellValueFactory(new PropertyValueFactory<Room, String>("roomID"));
+        roomType.setCellValueFactory(new PropertyValueFactory<>("roomType"));
 
         tableView.setItems(getGuestsList());
     }

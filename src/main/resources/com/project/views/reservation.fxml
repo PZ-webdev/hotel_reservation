@@ -41,7 +41,7 @@
                                 <TableColumn fx:id="name" onEditCommit="#changeNameCell" prefWidth="130.4000244140625" text="Imię i Nazwisko" />
                                 <TableColumn fx:id="date_start" prefWidth="159.199951171875" text="Data Rozpoczęcia" />
                                 <TableColumn fx:id="date_end" prefWidth="145.5999755859375" text="Data Zakończenia" />
-                                <TableColumn fx:id="numberOfDays" maxWidth="3000.0" prefWidth="79.199951171875" text="Ilość Dni" />
+                                <TableColumn fx:id="numberOfDays" maxWidth="1500.0" prefWidth="79.199951171875" text="Dni" />
                         <TableColumn fx:id="price" maxWidth="2000.0" prefWidth="75.0" text="Cena" />
                             </columns>
                             <columnResizePolicy>

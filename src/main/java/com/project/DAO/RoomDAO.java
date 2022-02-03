@@ -1,6 +1,7 @@
 package com.project.DAO;
 
 import com.project.Models.Room;
+import javafx.scene.control.Alert;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.resource.transaction.spi.TransactionStatus;
@@ -57,6 +58,12 @@ public class RoomDAO {
             session.delete(room);
             transaction.commit();
         } catch (Exception ex) {
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Nie można usunąć danego pokoju, ponieważ jest w użyciu..");
+            alert.showAndWait();
+
             if (transaction != null) {
                 transaction.rollback();
             }

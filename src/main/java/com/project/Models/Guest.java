@@ -47,7 +47,8 @@ public class Guest {
         return ChronoUnit.DAYS.between(date_start,date_end);
     }
 
-   public double getPriceReservation(){
-        return getDays() *  roomID.getRoom_fee();
+   public String getPriceReservation(){
+        double price = getDays() *  roomID.getRoom_fee();
+        return price + " zł";
    }
 }

@@ -121,9 +121,13 @@ public class ReservationController implements Initializable, IMenu {
                     String lowerCaseFilter = newValue.toLowerCase();
                         if(guest.getName().toLowerCase().contains(lowerCaseFilter)){
                             return true;
-                        }
-                        else return guest.toString().contains(lowerCaseFilter);
+                        }else if(guest.getDate_start().toString().contains(lowerCaseFilter)){
+                            return true;
+                        }else if(guest.getDate_end().toString().contains(lowerCaseFilter)){
+                            return true;
+                        }else return Integer.toString(guest.getGuestID()).contains(lowerCaseFilter);
                 }));
+
         return filteredList;
     }
 

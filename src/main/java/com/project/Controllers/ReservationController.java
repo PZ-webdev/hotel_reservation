@@ -10,6 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 
 import java.io.IOException;
 import java.net.URL;
@@ -50,6 +51,8 @@ public class ReservationController implements Initializable, IMenu {
         date_end.setCellValueFactory(new PropertyValueFactory<>("date_end"));
         numberOfDays.setCellValueFactory(new PropertyValueFactory("days"));
         price.setCellValueFactory(new PropertyValueFactory("priceReservation"));
+
+        name.setCellFactory(TextFieldTableCell.forTableColumn());
 
         tableView.setItems(getGuestsList());
     }

@@ -121,6 +121,7 @@ public class AddReservationController implements Initializable, IMenu {
      * */
     private Guest createGuestFromInput() {
         Guest guest = new Guest();
+        guest.setRoomID(roomSelect.getValue());
         guest.setDate_end(dateEnd.getValue());
         guest.setDate_start(dateStart.getValue());
         guest.setName(name.getText());

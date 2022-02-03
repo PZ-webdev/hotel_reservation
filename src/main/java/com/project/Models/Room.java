@@ -32,4 +32,9 @@ public class Room {
         this.room_capacity = room_capacity;
         this.room_fee = room_fee;
     }
+
+    @Override
+    public String toString() {
+        return  room_type+ " - " + room_capacity;
+    }
 }

@@ -4,13 +4,18 @@ import com.project.DAO.GuestDAO;
 import com.project.Helpers.IMenu;
 import com.project.Models.Guest;
 import com.project.Models.Room;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.Callback;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
@@ -48,6 +53,15 @@ public class GuestController  implements Initializable, IMenu {
         date_end.setCellValueFactory(new PropertyValueFactory<>("date_end"));
         roomType.setCellValueFactory(new PropertyValueFactory<Room, String>("roomID"));
 
+//        roomType
+//                .setCellValueFactory((param) -> new SimpleObjectProperty<>(param.getValue().getRoom_type()));
+//        roomType.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<Room, String>,
+//                        ObservableValue<String>>() {
+//            @Override
+//            public ObservableValue<String> call(TreeTableColumn.CellDataFeatures<Room, String> data){
+////                return data.getValue();
+//            }
+//        });
         tableView.setItems(getGuestsList());
     }
 

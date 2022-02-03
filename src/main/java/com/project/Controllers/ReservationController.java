@@ -5,11 +5,13 @@ import com.project.Helpers.IMenu;
 import com.project.Models.Guest;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 
@@ -26,6 +28,7 @@ public class ReservationController implements Initializable, IMenu {
     public TableColumn<Guest, Date> date_end;
     public TableColumn<Guest, Integer> numberOfDays;
     public TableColumn<Guest, Double> fees;
+    public TextField searchBar;
 
     ReservationDAO reservationDAO = new ReservationDAO();
     ObservableList<Guest> guestsObList = FXCollections.observableArrayList();
@@ -70,6 +73,7 @@ public class ReservationController implements Initializable, IMenu {
     private void addTableSettings() {
         tableView.setEditable(true);
         tableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        tableView.setItems(getFilteredList());
     }
 
     /**
@@ -103,6 +107,23 @@ public class ReservationController implements Initializable, IMenu {
             reservationDAO.delete(guest);
         }
         showReservationScreen(event);
+    }
+
+    private FilteredList<Guest> getFilteredList() {
+        FilteredList<Guest> filteredList = new FilteredList<>(guestsObList, b -> true);
+        searchBar.textProperty().addListener((observable, oldValue, newValue) ->
+                filteredList.setPredicate(guest -> {
+                    if (newValue == null || newValue.isEmpty()) {
+                        return true;
+                    }
+
+                    String lowerCaseFilter = newValue.toLowerCase();
+                        if(guest.getName().toLowerCase().contains(lowerCaseFilter)){
+                            return true;
+                        }
+                        else return guest.toString().contains(lowerCaseFilter);
+                }));
+        return filteredList;
     }
 
     /**

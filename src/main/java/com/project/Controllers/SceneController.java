@@ -1,7 +1,7 @@
 package com.project.Controllers;
 
 import com.project.Helpers.ScenePath;
-import com.project.Main;
+import com.project.App;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -27,7 +27,7 @@ public class SceneController {
      * @param stage
     * */
     public static void getInitialScene(Stage stage) throws IOException {
-        main = FXMLLoader.load((Main.class.getResource(ScenePath.LOGIN.getPath())));
+        main = FXMLLoader.load((App.class.getResource(ScenePath.LOGIN.getPath())));
         Scene scene = new Scene(main);
         controlDrag(stage);
         stage.initStyle(StageStyle.UNDECORATED);
@@ -96,7 +96,7 @@ public class SceneController {
      * @param path
      * */
     private static void changeScreen(ActionEvent event, String path) throws IOException {
-        main = FXMLLoader.load(Main.class.getResource(path));
+        main = FXMLLoader.load(App.class.getResource(path));
         Scene visitScene = new Scene(main);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         controlDrag(window);

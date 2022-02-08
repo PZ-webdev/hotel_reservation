@@ -5,15 +5,15 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 
-<AnchorPane stylesheets="@../css/style.css" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.Controllers.AddReservationController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.project.Controllers.AddReservationController">
     <children>
         <VBox layoutX="-1.0" prefHeight="550.0" prefWidth="250.0" style="-fx-background-color: #3F2B63;">
             <children>
@@ -41,22 +41,22 @@
                                 <Font name="System Bold" size="18.0" />
                             </font>
                         </Text>
-                  <TextField fx:id="name" layoutX="300.0" layoutY="120.0" prefHeight="25.0" prefWidth="216.0" />
                   <ComboBox fx:id="roomSelect" layoutX="299.0" layoutY="80.0" prefHeight="25.0" prefWidth="216.0" />
+                  <TextField fx:id="name" layoutX="300.0" layoutY="120.0" prefHeight="25.0" prefWidth="216.0" />
                   <Label layoutX="40.0" layoutY="124.0" prefHeight="25.0" prefWidth="198.0" text="Imię i Nazwisko" />
                   <Label layoutX="43.0" layoutY="83.0" prefHeight="25.0" prefWidth="198.0" text="Pokój" />
                   <Label layoutX="40.0" layoutY="238.0" prefHeight="25.0" prefWidth="198.0" text="Data Rozpoczęcia" />
+                  <TextField fx:id="email" layoutX="299.0" layoutY="159.0" prefHeight="25.0" prefWidth="216.0" />
+                  <TextField fx:id="phone" layoutX="300.0" layoutY="199.0" prefHeight="25.0" prefWidth="216.0" />
                   <DatePicker fx:id="dateStart" layoutX="300.0" layoutY="238.0" prefHeight="25.0" prefWidth="216.0" />
                   <DatePicker fx:id="dateEnd" layoutX="299.0" layoutY="284.0" prefHeight="25.0" prefWidth="216.0" />
                   <Label layoutX="40.0" layoutY="284.0" prefHeight="25.0" prefWidth="198.0" text="Data Zakończenia" />
-                  <TextField fx:id="email" layoutX="299.0" layoutY="159.0" prefHeight="25.0" prefWidth="216.0" />
                   <Label layoutX="40.0" layoutY="159.0" prefHeight="25.0" prefWidth="198.0" text="E-mail" />
-                  <TextField fx:id="phone" layoutX="300.0" layoutY="199.0" prefHeight="25.0" prefWidth="216.0" />
                   <Label layoutX="40.0" layoutY="199.0" prefHeight="25.0" prefWidth="198.0" text="Telefon" />
                   <Label layoutX="40.0" layoutY="323.0" prefHeight="25.0" prefWidth="198.0" text="Zaliczka" />
                   <TextField fx:id="fee" layoutX="300.0" layoutY="323.0" prefHeight="25.0" prefWidth="216.0" />
-                  <Button layoutX="466.0" layoutY="466.0" mnemonicParsing="false" text="Zapisz" onAction="#saveNewGuestToDb"/>
-                  <Button layoutX="389.0" layoutY="467.0" mnemonicParsing="false" text="Wyczyść" onAction="#clear"/>
+                  <Button layoutX="466.0" layoutY="466.0" mnemonicParsing="false" onAction="#saveNewGuestToDb" text="Zapisz" />
+                  <Button layoutX="389.0" layoutY="467.0" mnemonicParsing="false" onAction="#clear" text="Wyczyść" />
                   <Label fx:id="textValidLabel" layoutX="300.0" layoutY="365.0" prefHeight="17.0" prefWidth="216.0" textFill="RED" />
                     </children>
                 </Pane>

@@ -76,18 +76,8 @@ public class AddReservationController implements Initializable, IMenu {
      *  Walidacja dodawaneej rezerwacji
      * */
     private boolean validateInputs() {
-
-        if (dateStart.getValue() == null) {
-            textValidLabel.setText("Zaznacz datę początkową rezerwacji!");
-            return false;
-        }
-
-        if(dateEnd.getValue() == null) {
-            textValidLabel.setText("Zaznacz datę końcową rezerwacji!");
-            return false;
-        }
-        if(!dateEnd.getValue().isAfter(dateStart.getValue())) {
-            textValidLabel.setText("Data Zakończenia musi być poźniejsza niż rozpoczęcia");
+        if (roomSelect.getValue() == null){
+            textValidLabel.setText("Wybierz rodzaj pokoju!");
             return false;
         }
 
@@ -105,15 +95,32 @@ public class AddReservationController implements Initializable, IMenu {
             textValidLabel.setText("Podaj adres nr. telefonu");
             return false;
         }
+
+        if (dateStart.getValue() == null) {
+            textValidLabel.setText("Zaznacz datę początkową rezerwacji!");
+            return false;
+        }
+
+        if(dateEnd.getValue() == null) {
+            textValidLabel.setText("Zaznacz datę końcową rezerwacji!");
+            return false;
+        }
+        if(!dateEnd.getValue().isAfter(dateStart.getValue())) {
+            textValidLabel.setText("Data Zakończenia musi być poźniejsza niż rozpoczęcia");
+            return false;
+        }
+
         if (fee.getText().equals("")) {
             textValidLabel.setText("Podaj zaliczkę");
             return false;
         }
+
         if (parseInt(fee.getText()) < 0) {
             textValidLabel.setText("Zaliczka musi być większa od zera!");
             return false;
         }
         return true;
+
     }
 
     /**

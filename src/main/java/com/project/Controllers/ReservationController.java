@@ -92,8 +92,16 @@ public class ReservationController implements Initializable, IMenu {
      * */
     public void changeNameCell(TableColumn.CellEditEvent<Guest, String> editEvent) {
         Guest selectedGuest = tableView.getSelectionModel().getSelectedItem();
-        selectedGuest.setName(editEvent.getNewValue().toString());
-        reservationDAO.update(selectedGuest);
+        String newName = editEvent.getNewValue().toString();
+        if (newName.equals("")){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Wprowadź Imie i Nazwisko");
+            alert.showAndWait();
+        }else{
+            selectedGuest.setName(editEvent.getNewValue().toString());
+            reservationDAO.update(selectedGuest);
+        }
     }
 
     /**

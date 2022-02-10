@@ -183,6 +183,17 @@ public class AddReservationController implements Initializable, IMenu {
             }
         });
 
+        email.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches(".+@.+\\\\.[a-z]+")) {
+                    email.setText(newValue.replaceAll("[^.+@.+\\\\.[a-z]+]", ""));
+                    textValidLabel.setText("Niepoprawny adres E-mail");
+                }
+            }
+        });
+
         phone.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue,

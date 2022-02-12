@@ -1,0 +1,156 @@
+.sidebar {
+    -fx-background-color: #253b5f;
+}
+
+.header {
+    -fx-background-color: white;
+}
+
+.mainWindow {
+    -fx-background-color: #e9e7ec;
+}
+
+.wtext {
+    -fx-text-fill: white;
+}
+
+.button {
+    -fx-background-color: #253b5f;
+    -fx-background-radius: 0;
+    -fx-text-fill: #ffffff;
+    -fx-font: 14px 'Open Sans';
+}
+
+.button:hover {
+    -fx-background-color: #16243b;
+}
+
+.button:default {
+    -fx-background-color: -fx-focus-color;
+    -fx-text-fill: #ffffff;
+    -fx-border-color: white;
+    -fx-border-width: 0 0 0 3;
+    -fx-background-insets: 0;
+}
+
+
+.table-view .column-header, .table-view{
+    -fx-text-fill: black;
+    -fx-background-color: #e9e7ec;
+}
+
+.table-view .column-header .label{
+    -fx-alignment: CENTER_LEFT;
+    -fx-text-fill: #253b5f;
+    -fx-padding: 10 10 10 10;
+    -fx-font: 14px 'Open Sans';
+    -fx-font-weight: bold;
+
+}
+
+.table-view .table-cell{
+    -fx-padding: 0 0 0 10;
+    -fx-table-cell-border-color:transparent;
+    -fx-text-fill: grey;
+}
+
+.table-row-cell{
+    -fx-background-color: #fdfdfd;
+    -fx-border-width:0 0 5 0;
+    -fx-border-color:#e9e7ec;
+}
+
+.table-view .table-row-cell:hover{
+    -fx-background-color: #fff3f0;
+}
+
+.table-view .table-row-cell:selected{
+    -fx-background-color: #ffd9cf;
+    -fx-border-color: #ff714a;
+}
+
+.table-view .filler {
+    -fx-background-color: #e9e7ec;
+}
+
+.login-field {
+    -fx-font: 14px Roboto;
+    -fx-background-color: #253b5f;
+    -fx-border-width: 0 0 3 0;
+    -fx-border-color: white;
+    -fx-text-fill: #ffffff;
+}
+
+.login-field:hover {
+    -fx-font: 14px Roboto;
+    -fx-background-color: #23385c;
+    -fx-border-width: 0 0 3 0;
+    -fx-border-color: white;
+    -fx-text-fill: #ffffff;
+}
+
+.login-button {
+    -fx-background-color: #253b5f;
+    -fx-border-color: #40b3ff;
+    -fx-border-width: 3 3 3 3;
+    -fx-text-fill: #40b3ff;
+    -fx-border-radius: 3;
+}
+
+.login-button:hover {
+    -fx-background-color: #253b5f;
+    -fx-border-color: #fff;
+    -fx-border-width: 3 3 3 3;
+    -fx-text-fill: #fff;
+    -fx-background-radius: 3;
+}
+
+.exit-button {
+    -fx-background-color: #253b5f;
+    -fx-text-fill: #0f1f38;
+    -fx-border-radius: 3;
+    -fx-border-color: #0f1f38;
+    -fx-border-width: 2 2 2 2;
+    -fx-font-weight: bold;
+}
+
+.exit-button:hover {
+    -fx-background-color: #253b5f;
+    -fx-text-fill: #fff;
+    -fx-border-radius: 3;
+    -fx-border-color: #fff;
+    -fx-border-width: 2 2 2 2;
+    -fx-font-weight: bold;
+}
+.deletebutton {
+    -fx-background-color: #fc583f;
+    -fx-background-radius: 3;
+    -fx-text-fill: #ffffff;
+    -fx-font: 14px Roboto;
+}
+
+.deletebutton:hover {
+    -fx-background-color: #e34d36;
+    -fx-text-fill: #ffffff;
+    -fx-font: 14px Roboto;
+}
+
+.addbutton {
+    -fx-background-color: #079cd9;
+    -fx-background-radius: 3;
+    -fx-text-fill: #ffffff;
+    -fx-font: 14px Roboto;
+}
+
+.addbutton:hover {
+    -fx-background-color: #0482b5;
+    -fx-text-fill: #ffffff;
+    -fx-font: 14px Roboto;
+}
+.login-button:hover {
+    -fx-background-color: #253b5f;
+    -fx-border-color: #fff;
+    -fx-border-width: 3 3 3 3;
+    -fx-text-fill: #fff;
+    -fx-background-radius: 3;
+}

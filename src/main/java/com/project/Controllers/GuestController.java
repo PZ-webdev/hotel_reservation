@@ -1,34 +1,110 @@
 package com.project.Controllers;
 
-import com.project.DAO.SingletonConnection;
+import com.project.DAO.GuestDAO;
+import com.project.Helpers.IMenu;
 import com.project.Models.Guest;
 import com.project.Models.Room;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TreeTableColumn;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.Callback;
 
-import javax.persistence.criteria.CriteriaQuery;
-import java.util.List;
+import java.io.IOException;
+import java.net.URL;
+import java.util.Date;
+import java.util.ResourceBundle;
 
-public class GuestController {
-    public GuestController() {
-        SessionFactory sessionFactory = SingletonConnection.getSessionFactory();
+public class GuestController  implements Initializable, IMenu {
+    public TableView<Guest> tableView;
+    public TableColumn<Guest, Integer> idColumn;
+    public TableColumn<Guest, String> name;
+    public TableColumn<Guest, Date> date_start;
+    public TableColumn<Guest, Date> date_end;
+    public TableColumn<Room, String> roomType;
 
-        // Utworzenie nowego obiektu i zapisanie ich do bazy
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
-        Room pokoj1 = session.get(Room.class, 1);
-        Room pokoj2 = session.get(Room.class, 2);
+    GuestDAO guestDAO = new GuestDAO();
+    ObservableList<Guest> guestsObList = FXCollections.observableArrayList();
 
-        session.save(new Guest(pokoj1, "Jan", "Kowalski", "kowalski@wp.pl", "Cicha 26", "Rzeszów", 156789856, 787897899, 30,360.3));
-        session.save(new Guest(pokoj2, "Anna", "Kowalska", "AnkaKowalska@wp.pl", "Glosna 26", "Rzeszów", 336969856, 999897899, 20,260.3));
-        session.getTransaction().commit();
+    public GuestController() {}
 
+    /**
+     *  Metoda inicjalizuje dodanie listy to tabeli
+     * */
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        setObList();
+        fillTable();
+    }
 
-        // Pobranie wszystkich obiektów danej klasy z bazy danych
-        CriteriaQuery<Guest> cq = session.getCriteriaBuilder().createQuery(Guest.class);
-        cq.from(Guest.class);
-        List<Guest> genders = session.createQuery(cq).getResultList();
-            System.out.println(genders.toString());
-        session.close();
+    /**
+     *  Dodanie danych do kolumn w tabeli
+     * */
+    public void fillTable() {
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("guestID"));
+        name.setCellValueFactory(new PropertyValueFactory<>("name"));
+        date_start.setCellValueFactory(new PropertyValueFactory<>("date_start"));
+        date_end.setCellValueFactory(new PropertyValueFactory<>("date_end"));
+        roomType.setCellValueFactory(new PropertyValueFactory<>("roomType"));
+
+        tableView.setItems(getGuestsList());
+    }
+
+    /**
+     *  Pobranie listy gości
+     *
+     * @return  liste goście
+     * */
+    private ObservableList<Guest> getGuestsList() {
+        ObservableList<Guest> guest = FXCollections.observableArrayList();
+        guest.addAll(guestDAO.getGuests());
+        return guest;
+    }
+
+    /**
+     *  Wyczyszczenie listy, i pobranie listy gości
+     * */
+    private void setObList() {
+        guestsObList.clear();
+        guestsObList.addAll(guestDAO.getGuests());
+    }
+
+    /**
+     *  Przesłonięte metody do zmiany scen
+     * */
+    @Override
+    public void showLoginScreen(ActionEvent event) throws IOException {
+        SceneController.getLoginScene(event);
+    }
+
+    @Override
+    public void showRoomScreen(ActionEvent event) throws IOException {
+        SceneController.getRoomScene(event);
+    }
+
+    @Override
+    public void showGuestScreen(ActionEvent event) throws IOException {
+        SceneController.getGuestScene(event);
+    }
+
+    @Override
+    public void showReservationScreen(ActionEvent event) throws IOException {
+        SceneController.getReservationScene(event);
+    }
+
+    @Override
+    public void close(ActionEvent event) throws IOException {
+        SceneController.close(event);
+    }
+
+    @Override
+    public void showAddReservation(ActionEvent event) throws IOException {
+        //
     }
 }
